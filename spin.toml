@@ -13,6 +13,7 @@ component = "spin-fs"
 [component.spin-fs]
 source = "target/spin-fs.wasm"
 exclude_files = ["**/node_modules"]
+files = [{ source = "assets/test.txt", destination = "test.txt" }]
 [component.spin-fs.build]
 command = "npm run build"
 watch = ["src/**/*.ts", "package.json"]
