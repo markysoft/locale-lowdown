@@ -50,7 +50,6 @@ async function callWeatherApi(): Promise<AccuWeatherWeek> {
   if (!result.ok) {
     throw new Error('Rate limit exceeded')
   }
-
   return await result.json()
 }
 
