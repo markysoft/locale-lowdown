@@ -3,10 +3,10 @@ import * as Sqrl from 'squirrelly'
 import { isJsonRequest } from '../lib/isJsonRequest'
 import { getBankHolidays } from '../lib/getBankHolidays'
 import { twentyFourHoursInSeconds } from '../config'
-import fs from 'fs';
+import { readFile } from '../lib/readFile'
 
 export async function handleGetBankHolidays(req: Request, res: ResponseBuilder) {
-    let holidayTemplate = fs.readFileSync('./templates/holiday-list.sqrl', 'utf8')
+    var template = await readFile('./templates/holiday-list.sqrl')
     console.log('getting bank holidays')
     const holidays = await getBankHolidays()
     res.set('Cache-Control', `public, max-age=${twentyFourHoursInSeconds}`)
@@ -15,6 +15,6 @@ export async function handleGetBankHolidays(req: Request, res: ResponseBuilder) 
         res.send(JSON.stringify(holidays))
     } else {
         res.set('Content-Type', 'text/plain')
-        res.send(Sqrl.render(holidayTemplate.toString(), { holidays }))
+        res.send(Sqrl.render(template, { holidays }))
     }
 }
