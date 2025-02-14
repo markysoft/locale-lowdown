@@ -1,8 +1,8 @@
 import { ResponseBuilder } from '@fermyon/spin-sdk'
 import * as Sqrl from 'squirrelly'
-import { getTides } from '../lib/getTides'
-import { twelveHoursInSeconds } from '../config'
-import { readFile } from '../lib/readFile'
+import { getTides } from './getTides'
+import { twelveHoursInSeconds } from '../../config'
+import { readFile } from '../../lib/readFile'
 
 export async function handleGetTides(req: Request, res: ResponseBuilder) {
     console.log('getting tides')

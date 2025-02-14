@@ -1,11 +1,15 @@
 import { ResponseBuilder } from '@fermyon/spin-sdk'
+import * as Sqrl from 'squirrelly'
+import { readFile } from './readFile'
 
-export function handleError(res: ResponseBuilder, error: unknown) {
+export async function handleError(res: ResponseBuilder, error: unknown) {
     res.set('Content-Type', 'application/json')
     res.statusCode = 500
+    const template = await readFile('./templates/error.sqrl')
     if (error instanceof Error) {
-        res.send(JSON.stringify({ error: error.message }))
-    } else {
-        res.send(JSON.stringify(error))
+        res.send(Sqrl.render(template, { message: error.message }))
+    }
+    else {
+        res.send(Sqrl.render(template, { message: JSON.stringify(error) }))
     }
 }

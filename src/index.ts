@@ -1,10 +1,10 @@
 import { ResponseBuilder, Router } from '@fermyon/spin-sdk'
-import { handleGetBankHolidays } from './routes/handleGetBankHolidays'
+import { handleGetBankHolidays } from './routes/bank-holidays/handler'
 import { handleError } from './lib/handleError'
-import { handleDefaultRoute } from './routes/handleDefaultRoute'
+import { handleDefaultRoute } from './routes/default/handler'
 import { readFileStream } from './lib/readFile'
-import { handleGetTides } from './routes/handleGetTides'
-import { handleGetWeather } from './routes/handleGetWeather'
+import { handleGetTides } from './routes/tides/handler'
+import { handleGetWeather } from './routes/weather/handler'
 
 const router = Router()
 

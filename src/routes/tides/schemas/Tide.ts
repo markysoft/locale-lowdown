@@ -1,5 +1,5 @@
 import { z } from 'zod'
-import { toFriendlyDate } from '../lib/dateUtils'
+import { toFriendlyDate } from '../../../lib/utils'
 
 export const TideSchema = z.object({
     time: z.string(),

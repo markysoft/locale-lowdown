@@ -1,6 +1,6 @@
 import { decode } from 'html-entities'
 import parse from 'node-html-parser'
-import { TideSchema, Tide, TideRecordSchema, TideRecord } from '../schemas/Tide'
+import { TideSchema, Tide, TideRecordSchema, TideRecord } from './schemas/Tide'
 
 export async function getTidesRssText() {
     const tidesResponse = await fetch('https://www.tidetimes.org.uk/whitby-tide-times.rss')

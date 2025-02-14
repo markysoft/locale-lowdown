@@ -1,8 +1,8 @@
-import { SunSchema } from '../schemas/SunSchema'
-import { MoonSchema } from '../schemas/Moon'
-import { WeekAheadDay, WeatherSchema } from '../schemas/Weather'
-import { AccuWeather, AccuWeatherWeek } from '../schemas/AccuWeather'
-import { AccuWeatherApiKey } from '../secretConfig'
+import { SunSchema } from './schemas/SunSchema'
+import { MoonSchema } from './schemas/Moon'
+import { WeekAheadDay, WeatherSchema } from './schemas/Weather'
+import { AccuWeather, AccuWeatherWeek } from './schemas/AccuWeather'
+import { AccuWeatherApiKey } from '../../secretConfig'
 
 const url = `http://dataservice.accuweather.com/forecasts/v1/daily/5day/54400_PC?apikey=${AccuWeatherApiKey}&details=true&metric=true`
 
@@ -47,6 +47,10 @@ function mapWeather(todayWeather: AccuWeather): WeekAheadDay {
 
 async function callWeatherApi(): Promise<AccuWeatherWeek> {
   const result = await fetch(url)
+  if (result.status !== 200) {
+    throw new Error('Rate limit exceeded')
+  }
+
   return await result.json()
 }
 

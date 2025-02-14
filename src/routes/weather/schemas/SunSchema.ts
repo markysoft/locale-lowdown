@@ -1,5 +1,5 @@
 import { z } from 'zod'
-import { stringOrNumberToDate } from '../lib/zodUtils'
+import { stringOrNumberToDate } from './zodUtils'
 
 export const TideSchema = z.object({
   time: z.string(),

@@ -1,5 +1,5 @@
 import { z } from 'zod'
-import { dashDateStringToDate, toFriendlyDate } from '../lib/dateUtils'
+import { dashDateStringToDate, toFriendlyDate } from '../../../lib/utils'
 
 export const BankHolidaySchema = z.object({
     title: z.string(),

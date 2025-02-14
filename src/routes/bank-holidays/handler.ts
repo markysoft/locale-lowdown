@@ -1,8 +1,8 @@
 import { ResponseBuilder } from '@fermyon/spin-sdk'
 import * as Sqrl from 'squirrelly'
-import { getBankHolidays } from '../lib/getBankHolidays'
-import { twentyFourHoursInSeconds } from '../config'
-import { readFile } from '../lib/readFile'
+import { getBankHolidays } from './getBankHolidays'
+import { twentyFourHoursInSeconds } from '../../config'
+import { readFile } from '../../lib/readFile'
 
 export async function handleGetBankHolidays(req: Request, res: ResponseBuilder) {
     console.log('getting bank holidays')

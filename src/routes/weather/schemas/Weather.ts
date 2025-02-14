@@ -1,7 +1,7 @@
 import { z } from 'zod'
 import { SunSchema } from './SunSchema'
 import { MoonSchema } from './Moon'
-import { degreesToCompass, kmToMiles, splitOnSemiColons } from '../lib/zodUtils'
+import { degreesToCompass, kmToMiles, splitOnSemiColons } from '../../../lib/utils'
 
 export const WeatherSchema = z.object({
   date: z.date().optional(),
