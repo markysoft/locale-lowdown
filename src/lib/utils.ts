@@ -3,7 +3,11 @@ const monthNames = ['January', 'February', 'March', 'April', 'May', 'June', 'Jul
 
 export function dashDateStringToDate(dateString: string): Date {
     const [year, month, day] = dateString.split('-').map(s => Number(s))
-    return new Date(year, month - 1, day)
+    const date = new Date(year, month - 1, day)
+    if (isNaN(date.getTime())) {
+        throw new Error('Invalid date string')
+    }
+    return date
 }
 
 export function getOneYearsTime(d: Date): Date {
