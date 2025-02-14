@@ -8,6 +8,6 @@ export async function handleGetTides(req: Request, res: ResponseBuilder) {
     console.log('getting tides')
     res.set('Cache-Control', `public, max-age=${twelveHoursInSeconds}`)
     res.set('Content-Type', 'text/html')
-    var template = await readFile('./templates/tides.sqrl')
-    res.send(Sqrl.render(template, { tideRecord: await getTides() }))    
+    const template = await readFile('./templates/tides.sqrl')
+    res.send(Sqrl.render(template, { tideRecord: await getTides() }))
 }

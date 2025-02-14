@@ -8,6 +8,6 @@ export async function handleGetWeather(req: Request, res: ResponseBuilder) {
     console.log('getting weather')
     res.set('Cache-Control', `public, max-age=${oneHourInSeconds}`)
     res.set('Content-Type', 'text/html')
-    var template = await readFile('./templates/weather.sqrl')
+    const template = await readFile('./templates/weather.sqrl')
     res.send(Sqrl.render(template, { weatherRecord: await getTodayWeather() }))
 }

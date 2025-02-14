@@ -8,6 +8,6 @@ export async function handleGetBankHolidays(req: Request, res: ResponseBuilder) 
     console.log('getting bank holidays')
     res.set('Cache-Control', `public, max-age=${twentyFourHoursInSeconds}`)
     res.set('Content-Type', 'text/plain')
-    var template = await readFile('./templates/holiday-list.sqrl')
+    const template = await readFile('./templates/holiday-list.sqrl')
     res.send(Sqrl.render(template, { holidays: await getBankHolidays() }))
 }

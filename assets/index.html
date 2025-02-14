@@ -21,17 +21,17 @@
             </h1>
             <div class="columns">
                 <div class="column is-half">
-                    <div>
+                    <div >
                         <h2 class="title has-text-primary-15">Tides</h2>
                         <div hx-get="/api/tides" hx-trigger="load" hx-indicator="#tide-spinner">
-                            <div id="tide-spinner" class="spinner htmx-indicator box">
-                                <div class="fa fa-spinner fa-spin "></div>
+                            <div class="spinner box has-text-centered">
+                                <div class="fa fa-spinner fa-spin"></div>
                             </div>
                         </div>
                         <h2 class="title has-text-primary-15">Weather</h2>
                         <div hx-get="/api/weather" hx-trigger="load" hx-indicator="#weather-spinner">
-                            <div id="weather-spinner" class="spinner htmx-indicator box">
-                                <div class="fa fa-spinner fa-spin "></div>
+                            <div class="spinner box has-text-centered">
+                                <div class="fa fa-spinner fa-spin"></div>
                             </div>
                         </div>
                     </div>
@@ -40,8 +40,8 @@
                     <div>
                         <h2 class="title has-text-primary-15">Bank Holidays</h2>
                         <div hx-get="/api/bank-holidays" hx-trigger="load" hx-indicator="#bh-spinner">#
-                            <div id="bh-spinner" class="spinner htmx-indicator box">
-                                <div class="fa fa-spinner fa-spin "></div>
+                            <div class="spinner box has-text-centered">
+                                <div class="fa fa-spinner fa-spin"></div>
                             </div>
                         </div>
                     </div>
