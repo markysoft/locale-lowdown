@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+<channel>
+	<title>Whitby Tide Times</title>
+	<link>https://www.tidetimes.org.uk/whitby-tide-times</link>
+	<description>Whitby tide times.</description>
+	<lastBuildDate>Sun, 19 Jan 2025 00:00:00 GMT</lastBuildDate>
+	<language>en-gb</language>
+	<atom:link href="https://www.tidetimes.org.uk/whitby-tide-times.rss" rel="self" type="application/rss+xml"/>
+	<item>
+		<title>Whitby Tide Times for 19th January 2025</title>
+		<link>https://www.tidetimes.org.uk/whitby-tide-times</link>
+		<guid>https://www.tidetimes.org.uk/whitby-tide-times</guid>
+		<pubDate>Sun, 19 Jan 2025 00:00:00 GMT</pubDate>
+		<description>&lt;a href=&quot;https://www.tidetimes.org.uk&quot; title=&quot;tide times&quot;&gt;Tide Times&lt;/a&gt; &amp;amp; Heights for &lt;a href=&quot;https://www.tidetimes.org.uk/whitby-tide-times&quot; title=&quot;Whitby tide times&quot;&gt;Whitby&lt;/a&gt; on 19th January 2025&lt;br/&gt;&lt;br/&gt;01:17 - Low Tide &#x28;1.35m&#x29;&lt;br/&gt;07:22 - High Tide &#x28;4.87m&#x29;&lt;br/&gt;13:14 - Low Tide &#x28;1.91m&#x29;&lt;br/&gt;19:25 - High Tide &#x28;5.17m&#x29;&lt;br/&gt;</description>
+	</item>
+</channel>
+</rss>
