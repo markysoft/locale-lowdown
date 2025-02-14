@@ -2,7 +2,7 @@ import { z } from 'zod'
 import { getOneYearsTime } from '../../lib/utils'
 import { BankHoliday, BankHolidaySchema } from './schemas/BankHoliday'
 
-export async function getBankHolidays() {
+export async function getBankHolidays() :Promise<BankHoliday[]> {
 
     const holidaysResponse = await fetch('https://www.gov.uk/bank-holidays.json')
     if (!holidaysResponse.ok) {
@@ -16,6 +16,5 @@ export async function getBankHolidays() {
     const now = new Date()
     const filter = (e: BankHoliday) => e.date > now && e.date < getOneYearsTime(now)
 
-    const holidays = z.array(BankHolidaySchema).parse(events).filter(filter)
-    return holidays
+    return z.array(BankHolidaySchema).parse(events).filter(filter)
 }

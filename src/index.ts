@@ -1,5 +1,5 @@
 import { ResponseBuilder, Router } from '@fermyon/spin-sdk'
-import { handleGetBankHolidays } from './routes/bank-holidays/handler'
+import { handleGetBankHolidays, handleGetNextBankHoliday } from './routes/bank-holidays/handler'
 import { handleError } from './lib/handleError'
 import { handleDefaultRoute } from './routes/default/handler'
 import { readFileStream } from './lib/readFile'
@@ -25,6 +25,10 @@ router.get(
 router.get(
     '/api/bank-holidays',
     async (_, req: Request, res: ResponseBuilder) => { await handleGetBankHolidays(req, res) })
+    
+router.get(
+    '/api/next-bank-holiday',
+    async (_, req: Request, res: ResponseBuilder) => { await handleGetNextBankHoliday(req, res) })
 
 router.get(
     '/api/tides',
