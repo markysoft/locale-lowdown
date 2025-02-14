@@ -4,6 +4,9 @@ import { TideSchema, Tide, TideRecordSchema, TideRecord } from './schemas/Tide'
 
 export async function getTidesRssText() {
     const tidesResponse = await fetch('https://www.tidetimes.org.uk/whitby-tide-times.rss')
+    if (!tidesResponse.ok) {
+        throw new Error(`Failed to fetch tides: ${tidesResponse.statusText}`)
+    }
     return await tidesResponse.text()
 }
 

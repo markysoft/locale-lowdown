@@ -47,7 +47,7 @@ function mapWeather(todayWeather: AccuWeather): WeekAheadDay {
 
 async function callWeatherApi(): Promise<AccuWeatherWeek> {
   const result = await fetch(url)
-  if (result.status !== 200) {
+  if (!result.ok) {
     throw new Error('Rate limit exceeded')
   }
 
