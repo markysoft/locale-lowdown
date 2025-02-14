@@ -17,6 +17,7 @@ router.get(
 router.get(
     '/site.css',
     async (_, req: Request, res: ResponseBuilder) => { 
+        res.set('Content-Type', 'text/css')
         res.send(await readFileStream('./site.css'));
      })
 

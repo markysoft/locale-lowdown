@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>HTMX Almanac</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@1.0.2/css/bulma.min.css">
+    <script src="https://kit.fontawesome.com/c2b6fd3803.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="./site.css">
     <script src="https://unpkg.com/htmx.org@2.0.4"
         integrity="sha384-HGfztofotfshcF7+8n44JQL2oJmowVChPTg48S+jvZoztPfvwD79OC/LTtG6dMp+"
@@ -20,7 +21,7 @@
             </h1>
             <div class="columns">
                 <div class="column is-half">
-                    <div class="content">
+                    <div>
                         <h2 class="title has-text-primary-15">Tides</h2>
                         <div hx-get="/api/tides" hx-trigger="load" hx-indicator="#tide-spinner">
                             <div id="tide-spinner" class="spinner htmx-indicator box">
@@ -36,7 +37,7 @@
                     </div>
                 </div>
                 <div class="column is-half">
-                    <div class="content">
+                    <div>
                         <h2 class="title has-text-primary-15">Bank Holidays</h2>
                         <div hx-get="/api/bank-holidays" hx-trigger="load" hx-indicator="#bh-spinner">#
                             <div id="bh-spinner" class="spinner htmx-indicator box">
