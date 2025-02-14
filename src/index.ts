@@ -10,7 +10,8 @@ const router = Router()
 
 router.get(
     '/',
-    async (_, req: Request, res: ResponseBuilder) => { 
+    async (_, req: Request, res: ResponseBuilder) => {
+        res.set('Content-Type', 'text/html')
         res.send(await readFileStream('./index.html'));
      })
 
