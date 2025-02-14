@@ -14,7 +14,7 @@ component = "spin-fs"
 source = "target/spin-fs.wasm"
 allowed_outbound_hosts = ["https://www.gov.uk", "https://www.tidetimes.org.uk", "http://dataservice.accuweather.com"]
 exclude_files = ["**/node_modules"]
-files = [{ source = "assets/test.txt", destination = "test.txt" }, { source = "assets", destination = "/" }]
+files = [{ source = "assets", destination = "/" }]
 [component.spin-fs.build]
 command = "npm run build"
 watch = ["src/**/*.ts", "package.json"]
