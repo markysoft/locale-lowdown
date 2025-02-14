@@ -4,9 +4,9 @@ import { handleError } from "./lib/handleError";
 import { handleDefaultRoute } from "./routes/handleDefaultRoute";
 import { readFileStream } from "./lib/readFile";
 import { handleGetTides } from "./routes/handleGetTides";
+import { handleGetWeather } from "./routes/handleGetWeather";
 
 const router = Router()
-
 
 router.get(
     '/',
@@ -27,6 +27,10 @@ router.get(
 router.get(
     '/api/tides',
     async (_, req: Request, res: ResponseBuilder) => { await handleGetTides(req, res) })
+
+router.get(
+    '/api/weather',
+    async (_, req: Request, res: ResponseBuilder) => { await handleGetWeather(req, res) })
 
 
 router.all('*', (_, req, res) => { handleDefaultRoute(req, res) })
