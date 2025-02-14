@@ -34,7 +34,7 @@ export function degreesToCompass(degrees: number): string {
 }
 
 export function splitOnSemiColons(input: string): string[] {
-    return input.split(';')
+    return input.split(';').filter(s => s.length > 0)
 }
 
 export function kmToMiles(km: number): number {
