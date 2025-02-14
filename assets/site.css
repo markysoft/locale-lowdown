@@ -1,0 +1,8 @@
+ul.no-bullets {
+  list-style-type: none;
+}
+
+.xspinner {
+  padding: 5.5em;
+  height: 12em;
+}

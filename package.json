@@ -19,7 +19,10 @@
         "webpack-cli": "^4.10.0"
     },
     "dependencies": {
+        "@bytecodealliance/componentize-js": "^0.15.1",
         "@fermyon/spin-sdk": "^2.3.0",
-        "@fermyon/wasi-ext": "^0.1.1"
+        "@fermyon/wasi-ext": "^0.1.1",
+        "squirrelly": "^9.1.0",
+        "zod": "^3.24.2"
     }
 }
