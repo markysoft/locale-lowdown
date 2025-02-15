@@ -23,21 +23,15 @@
             </h1>
             <div class="columns">
                 <div class="column is-half">
-                    <div>
+                    <div class="content">
                         <h2 class="title has-text-primary-15">Weather</h2>
                         <div hx-get="/api/weather" hx-trigger="load">
                             <div class="spinner box has-text-centered">
                                 <div class="fa fa-spinner fa-spin"></div>
                             </div>
                         </div>
-                        <div>
-                            <h2 class="title has-text-primary-15">Next Bank Holidays</h2>
-                            <div hx-get="/api/next-bank-holiday" hx-trigger="load">
-                                <div class="spinner box has-text-centered">
-                                    <div class="fa fa-spinner fa-spin"></div>
-                                </div>
-                            </div>
-                        </div>
+                    </div>
+                    <div class="content">
                         <h2 class="title has-text-primary-15">Tides</h2>
                         <div hx-get="/api/tides" hx-trigger="load">
                             <div class="spinner box has-text-centered">
@@ -45,10 +39,18 @@
                             </div>
                         </div>
                     </div>
+                    <div class="content">
+                        <h2 class="title has-text-primary-15">Next Bank Holiday</h2>
+                        <div hx-get="/api/next-bank-holiday" hx-trigger="load">
+                            <div class="spinner box has-text-centered">
+                                <div class="fa fa-spinner fa-spin"></div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
                 <div class="column is-half">
-                    <div>
-                        <h2 class="title has-text-primary-15">All Bank Holidays</h2>
+                    <div class="content">
+                        <h2 class="title has-text-primary-15">Bank Holidays</h2>
                         <div hx-get="/api/bank-holidays" hx-trigger="load">
                             <div class="spinner box has-text-centered">
                                 <div class="fa fa-spinner fa-spin"></div>
