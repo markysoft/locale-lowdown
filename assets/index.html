@@ -4,7 +4,8 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="htmx-config" content='{"responseHandling": [{"code":"204", "swap": false},{"code":"...", "swap": true}]}' />
+    <meta name="htmx-config"
+        content='{"responseHandling": [{"code":"204", "swap": false},{"code":"...", "swap": true}]}' />
     <title>Locale Lowdown</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@1.0.2/css/bulma.min.css">
     <script src="https://kit.fontawesome.com/c2b6fd3803.js" crossorigin="anonymous"></script>
@@ -28,7 +29,8 @@
                             <div class="spinner box has-text-centered">
                                 <div class="fa fa-spinner fa-spin"></div>
                             </div>
-                        </div><div>
+                        </div>
+                        <div>
                             <h2 class="title has-text-primary-15">Next Bank Holidays</h2>
                             <div hx-get="/api/next-bank-holiday" hx-trigger="load">
                                 <div class="spinner box has-text-centered">

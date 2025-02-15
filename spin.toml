@@ -11,6 +11,7 @@ route = "/..."
 component = "spin-fs"
 
 [component.spin-fs]
+key_value_stores = ["default"]
 source = "target/spin-fs.wasm"
 allowed_outbound_hosts = ["https://www.gov.uk", "https://www.tidetimes.org.uk", "http://dataservice.accuweather.com"]
 exclude_files = ["**/node_modules"]

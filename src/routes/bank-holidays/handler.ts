@@ -3,6 +3,8 @@ import * as Sqrl from 'squirrelly'
 import { getBankHolidays } from './getBankHolidays'
 import { twentyFourHoursInSeconds } from '../../config'
 import { readFile } from '../../lib/readFile'
+import { cacheWrapper } from '../../lib/cache'
+import { BankHoliday } from './schemas/BankHoliday'
 
 let templateLoaded = false
 
@@ -23,7 +25,7 @@ export async function handleGetBankHolidays(req: Request, res: ResponseBuilder) 
 
     const [template, holidays] = await Promise.all([
         readFile('./templates/holiday-list.sqrl'),
-        getBankHolidays(),
+        cacheWrapper<BankHoliday[]>('bank-holidays', twentyFourHoursInSeconds, () => getBankHolidays()),
         loadTemplate()
     ])
 
@@ -33,18 +35,15 @@ export async function handleGetBankHolidays(req: Request, res: ResponseBuilder) 
 
 
 export async function handleGetNextBankHoliday(req: Request, res: ResponseBuilder) {
-    console.log('getting bank holidays')
+    console.log('getting next bank holiday')
     res.set('Cache-Control', `public, max-age=${twentyFourHoursInSeconds}`)
     res.set('Content-Type', 'text/plain')
 
-
     const [template, holidays] = await Promise.all([
         readFile('./templates/bank-holiday.sqrl'),
-        getBankHolidays(),
+        cacheWrapper<BankHoliday[]>('bank-holidays', twentyFourHoursInSeconds, () => getBankHolidays()),
         loadTemplate()
     ])
-
-    console.log(holidays[0])
 
     res.send(Sqrl.render(template, { holiday: holidays[0] }))
 }
