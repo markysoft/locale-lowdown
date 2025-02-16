@@ -5,45 +5,32 @@ import { twentyFourHoursInSeconds } from '../../config'
 import { readFile } from '../../lib/readFile'
 import { cacheWrapper } from '../../lib/cache'
 import { BankHoliday } from './schemas/BankHoliday'
-
-let templateLoaded = false
-
-async function loadTemplate(): Promise<boolean> {
-    if (!templateLoaded) {
-        const template = await readFile('./templates/bank-holiday.sqrl')
-        Sqrl.templates.define('bank-holiday', Sqrl.compile(template))
-        templateLoaded = true
-    }
-    return true
-}
+import { departial } from '../../lib/departial'
 
 export async function handleGetBankHolidays(req: Request, res: ResponseBuilder) {
     console.log('getting bank holidays')
     res.set('Cache-Control', `public, max-age=${twentyFourHoursInSeconds}`)
-    res.set('Content-Type', 'text/plain')
+    res.set('Content-Type', 'text/html')
 
 
     const [template, holidays] = await Promise.all([
         readFile('./templates/holiday-list.sqrl'),
-        cacheWrapper<BankHoliday[]>('bank-holidays', twentyFourHoursInSeconds, () => getBankHolidays()),
-        loadTemplate()
+        cacheWrapper<BankHoliday[]>('bank-holidays', twentyFourHoursInSeconds, () => getBankHolidays())
     ])
 
     res.send(Sqrl.render(template, { holidays }))
 }
 
-
-
 export async function handleGetNextBankHoliday(req: Request, res: ResponseBuilder) {
     console.log('getting next bank holiday')
     res.set('Cache-Control', `public, max-age=${twentyFourHoursInSeconds}`)
-    res.set('Content-Type', 'text/plain')
+    res.set('Content-Type', 'text/html')
 
-    const [template, holidays] = await Promise.all([
-        readFile('./templates/bank-holiday.sqrl'),
-        cacheWrapper<BankHoliday[]>('bank-holidays', twentyFourHoursInSeconds, () => getBankHolidays()),
-        loadTemplate()
-    ])
+    const holidays = await cacheWrapper<BankHoliday[]>(
+        'bank-holidays',
+        twentyFourHoursInSeconds,
+        () => getBankHolidays()
+    )
 
-    res.send(Sqrl.render(template, { holiday: holidays[0] }))
+    res.send(Sqrl.render(departial('bank-holiday'), { holiday: holidays[0] }))
 }

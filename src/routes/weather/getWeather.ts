@@ -57,3 +57,9 @@ export async function getTodayWeather(): Promise<WeekAheadDay> {
   const week = await callWeatherApi()
   return mapWeather(week.DailyForecasts[0])
 }
+
+
+export async function getWeekWeather(): Promise<WeekAheadDay[]> {
+  const week = await callWeatherApi()
+  return week.DailyForecasts.map(mapWeather)
+}

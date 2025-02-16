@@ -1,7 +1,7 @@
 <div class="card">
     <div class="card-content">
         <div class="content has-text-centered">
-            <h3>Main outlook: {{it.weatherRecord.weather.main}}</h3>
+            <h3> {{it.weatherRecord.weather.date}}: {{it.weatherRecord.weather.main}}</h3>
             <p>
                 {{@each(it.weatherRecord.weather.description) => line, index}}
                 {{line}}<br />

@@ -1,10 +1,10 @@
 import { z } from 'zod'
 import { SunSchema } from './SunSchema'
 import { MoonSchema } from './Moon'
-import { degreesToCompass, kmToMiles, splitOnSemiColons } from '../../../lib/utils'
+import { degreesToCompass, getDayOfWeek as toDayOfWeek, kmToMiles, splitOnSemiColons } from '../../../lib/utils'
 
 export const WeatherSchema = z.object({
-  date: z.date().optional(),
+  date: z.date().optional().transform((val) => val ? toDayOfWeek(val) : undefined),
   main: z.string().optional(),
   description: z.string().transform(splitOnSemiColons).optional(),
   chanceOfRain: z.number().transform((val) => `${val * 100}%`).optional(),

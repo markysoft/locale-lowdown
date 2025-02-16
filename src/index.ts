@@ -1,11 +1,15 @@
 import { ResponseBuilder, Router } from '@fermyon/spin-sdk'
+import * as Sqrl from 'squirrelly'
 import { handleGetBankHolidays, handleGetNextBankHoliday } from './routes/bank-holidays/handler'
 import { handleError } from './lib/handleError'
 import { handleDefaultRoute } from './routes/default/handler'
-import { readFileStream } from './lib/readFile'
+import { readFile, readFileStream } from './lib/readFile'
 import { handleGetTides } from './routes/tides/handler'
-import { handleGetWeather } from './routes/weather/handler'
+import { handleGetWeather, handleGetWeekWeather } from './routes/weather/handler'
+import { handleGetNextBusFromMalton, handleGetNextBusToMalton } from './routes/bus-times/handler'
 
+
+let templateLoaded = false
 const router = Router()
 
 router.get(
@@ -38,10 +42,39 @@ router.get(
     '/api/weather',
     async (_, req: Request, res: ResponseBuilder) => { await handleGetWeather(req, res) })
 
+router.get(
+    '/api/weather-week',
+    async (_, req: Request, res: ResponseBuilder) => { await handleGetWeekWeather(req, res) })
+
+router.get(
+    '/api/next-bus-to-malton',
+    async (_, req: Request, res: ResponseBuilder) => { await handleGetNextBusToMalton(req, res) })
+router.get(
+    '/api/next-bus-from-malton',
+    async (_, req: Request, res: ResponseBuilder) => { await handleGetNextBusFromMalton(req, res) })
+
+
 
 router.all('*', (_, req, res) => { handleDefaultRoute(req, res) })
 
+
+async function loadTemplates(): Promise<boolean> {
+    // can only use file functions after webpack intiialisation, so lazy load it
+    if (!templateLoaded) {
+        const bankHolidayTemplate = await readFile('./templates/bank-holiday.sqrl')
+        Sqrl.templates.define('bank-holiday', Sqrl.compile(bankHolidayTemplate))
+        const weatherTemplate = await readFile('./templates/weather.sqrl')
+        Sqrl.templates.define('weather', Sqrl.compile(weatherTemplate))
+        const tidesTemplate = await readFile('./templates/tides.sqrl')
+        Sqrl.templates.define('tides', Sqrl.compile(tidesTemplate))
+        templateLoaded = true
+    }
+    return true
+}
+
+
 export async function handler(req: Request, res: ResponseBuilder) {
+    await loadTemplates()
     try {
         await router.handleRequest(req, res)
     }
@@ -50,3 +83,4 @@ export async function handler(req: Request, res: ResponseBuilder) {
         handleError(res, error)
     }
 }
+
