@@ -1,9 +1,10 @@
 import { decode } from 'html-entities'
 import parse from 'node-html-parser'
 import { TideSchema, Tide, TideRecordSchema, TideRecord } from './schemas/Tide'
+import { TideLocation } from '../../secretConfig'
 
 export async function getTidesRssText() {
-    const tidesResponse = await fetch('https://www.tidetimes.org.uk/whitby-tide-times.rss')
+    const tidesResponse = await fetch(`https://www.tidetimes.org.uk/${TideLocation}-tide-times.rss`)
     if (!tidesResponse.ok) {
         throw new Error(`Failed to fetch tides: ${tidesResponse.statusText}`)
     }
@@ -34,7 +35,7 @@ export function getTideRecord(rssText: string): TideRecord {
     const rawTides = getRawTides(rssText)
     const date: Date = getPubDate(rssText)
     const tides = rawTides.map(parseTide).filter(t => t !== undefined) as Tide[]
-    return TideRecordSchema.parse({ tides, date })
+    return TideRecordSchema.parse({ location: TideLocation, tides, date })
 }
 
 export async function getTides(): Promise<TideRecord> {

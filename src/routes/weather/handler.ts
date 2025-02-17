@@ -1,6 +1,6 @@
 import { ResponseBuilder } from '@fermyon/spin-sdk'
 import * as Sqrl from 'squirrelly'
-import { oneHourInSeconds } from '../../config'
+import { oneHourInSeconds } from '../../constants'
 import { getTodayWeather, getWeekWeather as getWeatherForWeek } from './getWeather'
 import { WeekAheadDay } from './schemas/Weather'
 import { cacheWrapper } from '../../lib/cache'

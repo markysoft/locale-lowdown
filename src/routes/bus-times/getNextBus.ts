@@ -1,12 +1,13 @@
 import { applyBritishSummerTime, dayOfWeekFromDayNumber, toHourMinuteString } from '../../lib/utils'
+import { HomeBusStop, TownBusStop } from '../../secretConfig'
 import { BusStop, BusTime, busTimes } from './busTimes'
 
 export function getNextBusToMalton(currentTime: Date) {
-    return getNextBus(applyBritishSummerTime(currentTime), 'Barton le Street', busTimes.toMalton)
+    return getNextBus(applyBritishSummerTime(currentTime), HomeBusStop, busTimes.toMalton)
 }
 
 export function getNextBusFromMalton(currentTime: Date) {
-    return getNextBus(applyBritishSummerTime(currentTime), 'MALTON Bus Station', busTimes.fromMalton)
+    return getNextBus(applyBritishSummerTime(currentTime), TownBusStop, busTimes.fromMalton)
 }
 
 export function getNextBus(currentTime: Date, stopName: string, schedule: BusStop[]) {
@@ -21,7 +22,7 @@ export function getNextBus(currentTime: Date, stopName: string, schedule: BusSto
     }
     const tomorrowInt = getTomorrowDayIndex(dayOfWeek)
     const tomorrowBus = myStopTimes.find((time: BusTime) => time.daysOfWeek.includes(tomorrowInt))
-    
+
     if (tomorrowBus) {
         return `${formatTime(tomorrowBus.at)} on ${dayOfWeekFromDayNumber(tomorrowInt)}`
     }

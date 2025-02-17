@@ -8,6 +8,7 @@ export const TideSchema = z.object({
 })
 
 export const TideRecordSchema = z.object({
+    location: z.string(),
     date: z.date().transform(toFriendlyDate),
     tides: z.array(TideSchema).optional().default([]),
 })

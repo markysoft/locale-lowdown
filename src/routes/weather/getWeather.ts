@@ -2,9 +2,9 @@ import { SunSchema } from './schemas/SunSchema'
 import { MoonSchema } from './schemas/Moon'
 import { WeekAheadDay, WeatherSchema } from './schemas/Weather'
 import { AccuWeather, AccuWeatherWeek } from './schemas/AccuWeather'
-import { AccuWeatherApiKey } from '../../secretConfig'
+import { AccuWeatherApiKey, AccuWeatherLocationKey } from '../../secretConfig'
 
-const url = `http://dataservice.accuweather.com/forecasts/v1/daily/5day/54400_PC?apikey=${AccuWeatherApiKey}&details=true&metric=true`
+const url = `http://dataservice.accuweather.com/forecasts/v1/daily/5day/${AccuWeatherLocationKey}?apikey=${AccuWeatherApiKey}&details=true&metric=true`
 
 function mapWeather(todayWeather: AccuWeather): WeekAheadDay {
   const {

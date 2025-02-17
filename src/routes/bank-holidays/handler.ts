@@ -1,7 +1,7 @@
 import { ResponseBuilder } from '@fermyon/spin-sdk'
 import * as Sqrl from 'squirrelly'
 import { getBankHolidays } from './getBankHolidays'
-import { twentyFourHoursInSeconds } from '../../config'
+import { twentyFourHoursInSeconds } from '../../constants'
 import { readFile } from '../../lib/readFile'
 import { cacheWrapper } from '../../lib/cache'
 import { BankHoliday } from './schemas/BankHoliday'
