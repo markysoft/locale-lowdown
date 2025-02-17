@@ -1,11 +1,11 @@
 export const busTimes = {
-  'toMalton': [
+  toMalton: [
     {
-      'name': 'Hovingham Worsley Arms',
-      'times': [
+      name: 'Hovingham Worsley Arms',
+      times: [
         {
-          'at': '0720',
-          'daysOfWeek': [
+          at: '0720',
+          daysOfWeek: [
             1,
             2,
             3,
@@ -14,8 +14,8 @@ export const busTimes = {
           ]
         },
         {
-          'at': '0810',
-          'daysOfWeek': [
+          at: '0810',
+          daysOfWeek: [
             1,
             2,
             3,
@@ -25,8 +25,8 @@ export const busTimes = {
           ]
         },
         {
-          'at': '1055',
-          'daysOfWeek': [
+          at: '1055',
+          daysOfWeek: [
             1,
             2,
             3,
@@ -36,8 +36,8 @@ export const busTimes = {
           ]
         },
         {
-          'at': '1320',
-          'daysOfWeek': [
+          at: '1320',
+          daysOfWeek: [
             1,
             2,
             3,
@@ -47,8 +47,8 @@ export const busTimes = {
           ]
         },
         {
-          'at': '1550',
-          'daysOfWeek': [
+          at: '1550',
+          daysOfWeek: [
             1,
             2,
             3,
@@ -60,11 +60,11 @@ export const busTimes = {
       ]
     },
     {
-      'name': 'Slingsby Green',
-      'times': [
+      name: 'Slingsby Green',
+      times: [
         {
-          'at': '0725',
-          'daysOfWeek': [
+          at: '0725',
+          daysOfWeek: [
             1,
             2,
             3,
@@ -73,8 +73,8 @@ export const busTimes = {
           ]
         },
         {
-          'at': '0815',
-          'daysOfWeek': [
+          at: '0815',
+          daysOfWeek: [
             1,
             2,
             3,
@@ -84,8 +84,8 @@ export const busTimes = {
           ]
         },
         {
-          'at': '1100',
-          'daysOfWeek': [
+          at: '1100',
+          daysOfWeek: [
             1,
             2,
             3,
@@ -95,8 +95,8 @@ export const busTimes = {
           ]
         },
         {
-          'at': '1325',
-          'daysOfWeek': [
+          at: '1325',
+          daysOfWeek: [
             1,
             2,
             3,
@@ -106,8 +106,8 @@ export const busTimes = {
           ]
         },
         {
-          'at': '1555',
-          'daysOfWeek': [
+          at: '1555',
+          daysOfWeek: [
             1,
             2,
             3,
@@ -119,11 +119,11 @@ export const busTimes = {
       ]
     },
     {
-      'name': 'Barton le Street',
-      'times': [
+      name: 'Barton le Street',
+      times: [
         {
-          'at': '0728',
-          'daysOfWeek': [
+          at: '0728',
+          daysOfWeek: [
             1,
             2,
             3,
@@ -132,8 +132,8 @@ export const busTimes = {
           ]
         },
         {
-          'at': '0818',
-          'daysOfWeek': [
+          at: '0818',
+          daysOfWeek: [
             1,
             2,
             3,
@@ -143,8 +143,8 @@ export const busTimes = {
           ]
         },
         {
-          'at': '1103',
-          'daysOfWeek': [
+          at: '1103',
+          daysOfWeek: [
             1,
             2,
             3,
@@ -154,8 +154,8 @@ export const busTimes = {
           ]
         },
         {
-          'at': '1328',
-          'daysOfWeek': [
+          at: '1328',
+          daysOfWeek: [
             1,
             2,
             3,
@@ -165,8 +165,8 @@ export const busTimes = {
           ]
         },
         {
-          'at': '1558',
-          'daysOfWeek': [
+          at: '1558',
+          daysOfWeek: [
             1,
             2,
             3,
@@ -178,11 +178,11 @@ export const busTimes = {
       ]
     },
     {
-      'name': 'Appleton le Street Cresswell Arms',
-      'times': [
+      name: 'Appleton le Street Cresswell Arms',
+      times: [
         {
-          'at': '0731',
-          'daysOfWeek': [
+          at: '0731',
+          daysOfWeek: [
             1,
             2,
             3,
@@ -191,8 +191,8 @@ export const busTimes = {
           ]
         },
         {
-          'at': '0821',
-          'daysOfWeek': [
+          at: '0821',
+          daysOfWeek: [
             1,
             2,
             3,
@@ -202,8 +202,8 @@ export const busTimes = {
           ]
         },
         {
-          'at': '1106',
-          'daysOfWeek': [
+          at: '1106',
+          daysOfWeek: [
             1,
             2,
             3,
@@ -213,8 +213,8 @@ export const busTimes = {
           ]
         },
         {
-          'at': '1331',
-          'daysOfWeek': [
+          at: '1331',
+          daysOfWeek: [
             1,
             2,
             3,
@@ -224,8 +224,8 @@ export const busTimes = {
           ]
         },
         {
-          'at': '1601',
-          'daysOfWeek': [
+          at: '1601',
+          daysOfWeek: [
             1,
             2,
             3,
@@ -237,11 +237,11 @@ export const busTimes = {
       ]
     },
     {
-      'name': 'Amotherby Eastfield',
-      'times': [
+      name: 'Amotherby Eastfield',
+      times: [
         {
-          'at': '0734',
-          'daysOfWeek': [
+          at: '0734',
+          daysOfWeek: [
             1,
             2,
             3,
@@ -250,8 +250,8 @@ export const busTimes = {
           ]
         },
         {
-          'at': '0824',
-          'daysOfWeek': [
+          at: '0824',
+          daysOfWeek: [
             1,
             2,
             3,
@@ -261,8 +261,8 @@ export const busTimes = {
           ]
         },
         {
-          'at': '1109',
-          'daysOfWeek': [
+          at: '1109',
+          daysOfWeek: [
             1,
             2,
             3,
@@ -272,8 +272,8 @@ export const busTimes = {
           ]
         },
         {
-          'at': '1334',
-          'daysOfWeek': [
+          at: '1334',
+          daysOfWeek: [
             1,
             2,
             3,
@@ -283,8 +283,8 @@ export const busTimes = {
           ]
         },
         {
-          'at': '1604',
-          'daysOfWeek': [
+          at: '1604',
+          daysOfWeek: [
             1,
             2,
             3,
@@ -296,11 +296,11 @@ export const busTimes = {
       ]
     },
     {
-      'name': 'Swinton West Grove',
-      'times': [
+      name: 'Swinton West Grove',
+      times: [
         {
-          'at': '0736',
-          'daysOfWeek': [
+          at: '0736',
+          daysOfWeek: [
             1,
             2,
             3,
@@ -309,8 +309,8 @@ export const busTimes = {
           ]
         },
         {
-          'at': '0826',
-          'daysOfWeek': [
+          at: '0826',
+          daysOfWeek: [
             1,
             2,
             3,
@@ -320,8 +320,8 @@ export const busTimes = {
           ]
         },
         {
-          'at': '1111',
-          'daysOfWeek': [
+          at: '1111',
+          daysOfWeek: [
             1,
             2,
             3,
@@ -331,8 +331,8 @@ export const busTimes = {
           ]
         },
         {
-          'at': '1336',
-          'daysOfWeek': [
+          at: '1336',
+          daysOfWeek: [
             1,
             2,
             3,
@@ -342,8 +342,8 @@ export const busTimes = {
           ]
         },
         {
-          'at': '1606',
-          'daysOfWeek': [
+          at: '1606',
+          daysOfWeek: [
             1,
             2,
             3,
@@ -355,11 +355,11 @@ export const busTimes = {
       ]
     },
     {
-      'name': 'Broughton Lane End',
-      'times': [
+      name: 'Broughton Lane End',
+      times: [
         {
-          'at': '0738',
-          'daysOfWeek': [
+          at: '0738',
+          daysOfWeek: [
             1,
             2,
             3,
@@ -368,8 +368,8 @@ export const busTimes = {
           ]
         },
         {
-          'at': '0828',
-          'daysOfWeek': [
+          at: '0828',
+          daysOfWeek: [
             1,
             2,
             3,
@@ -379,8 +379,8 @@ export const busTimes = {
           ]
         },
         {
-          'at': '1113',
-          'daysOfWeek': [
+          at: '1113',
+          daysOfWeek: [
             1,
             2,
             3,
@@ -390,8 +390,8 @@ export const busTimes = {
           ]
         },
         {
-          'at': '1338',
-          'daysOfWeek': [
+          at: '1338',
+          daysOfWeek: [
             1,
             2,
             3,
@@ -401,8 +401,8 @@ export const busTimes = {
           ]
         },
         {
-          'at': '1608',
-          'daysOfWeek': [
+          at: '1608',
+          daysOfWeek: [
             1,
             2,
             3,
@@ -414,11 +414,11 @@ export const busTimes = {
       ]
     },
     {
-      'name': 'MALTON Bus Station',
-      'times': [
+      name: 'MALTON Bus Station',
+      times: [
         {
-          'at': '0745',
-          'daysOfWeek': [
+          at: '0745',
+          daysOfWeek: [
             1,
             2,
             3,
@@ -427,8 +427,8 @@ export const busTimes = {
           ]
         },
         {
-          'at': '0840',
-          'daysOfWeek': [
+          at: '0840',
+          daysOfWeek: [
             1,
             2,
             3,
@@ -438,8 +438,8 @@ export const busTimes = {
           ]
         },
         {
-          'at': '1120',
-          'daysOfWeek': [
+          at: '1120',
+          daysOfWeek: [
             1,
             2,
             3,
@@ -449,8 +449,8 @@ export const busTimes = {
           ]
         },
         {
-          'at': '1345',
-          'daysOfWeek': [
+          at: '1345',
+          daysOfWeek: [
             1,
             2,
             3,
@@ -460,8 +460,8 @@ export const busTimes = {
           ]
         },
         {
-          'at': '1615',
-          'daysOfWeek': [
+          at: '1615',
+          daysOfWeek: [
             1,
             2,
             3,
@@ -473,13 +473,13 @@ export const busTimes = {
       ]
     }
   ],
-  'fromMalton': [
+  fromMalton: [
     {
-      'name': 'MALTON Bus Station',
-      'times': [
+      name: 'MALTON Bus Station',
+      times: [
         {
-          'at': '1025',
-          'daysOfWeek': [
+          at: '1025',
+          daysOfWeek: [
             1,
             2,
             3,
@@ -489,8 +489,8 @@ export const busTimes = {
           ]
         },
         {
-          'at': '1250',
-          'daysOfWeek': [
+          at: '1250',
+          daysOfWeek: [
             1,
             2,
             3,
@@ -500,8 +500,8 @@ export const busTimes = {
           ]
         },
         {
-          'at': '1515',
-          'daysOfWeek': [
+          at: '1515',
+          daysOfWeek: [
             1,
             2,
             3,
@@ -511,8 +511,8 @@ export const busTimes = {
           ]
         },
         {
-          'at': '1740',
-          'daysOfWeek': [
+          at: '1740',
+          daysOfWeek: [
             1,
             2,
             3,
@@ -524,11 +524,11 @@ export const busTimes = {
       ]
     },
     {
-      'name': 'MALTON Newgate',
-      'times': [
+      name: 'MALTON Newgate',
+      times: [
         {
-          'at': '1028',
-          'daysOfWeek': [
+          at: '1028',
+          daysOfWeek: [
             1,
             2,
             3,
@@ -538,8 +538,8 @@ export const busTimes = {
           ]
         },
         {
-          'at': '1253',
-          'daysOfWeek': [
+          at: '1253',
+          daysOfWeek: [
             1,
             2,
             3,
@@ -549,8 +549,8 @@ export const busTimes = {
           ]
         },
         {
-          'at': '1518',
-          'daysOfWeek': [
+          at: '1518',
+          daysOfWeek: [
             1,
             2,
             3,
@@ -560,8 +560,8 @@ export const busTimes = {
           ]
         },
         {
-          'at': '1743',
-          'daysOfWeek': [
+          at: '1743',
+          daysOfWeek: [
             1,
             2,
             3,
@@ -573,11 +573,11 @@ export const busTimes = {
       ]
     },
     {
-      'name': 'Broughton Lane End',
-      'times': [
+      name: 'Broughton Lane End',
+      times: [
         {
-          'at': '1030',
-          'daysOfWeek': [
+          at: '1030',
+          daysOfWeek: [
             1,
             2,
             3,
@@ -587,8 +587,8 @@ export const busTimes = {
           ]
         },
         {
-          'at': '1255',
-          'daysOfWeek': [
+          at: '1255',
+          daysOfWeek: [
             1,
             2,
             3,
@@ -598,8 +598,8 @@ export const busTimes = {
           ]
         },
         {
-          'at': '1520',
-          'daysOfWeek': [
+          at: '1520',
+          daysOfWeek: [
             1,
             2,
             3,
@@ -609,8 +609,8 @@ export const busTimes = {
           ]
         },
         {
-          'at': '1745',
-          'daysOfWeek': [
+          at: '1745',
+          daysOfWeek: [
             1,
             2,
             3,
@@ -622,11 +622,11 @@ export const busTimes = {
       ]
     },
     {
-      'name': 'Swinton West Grove',
-      'times': [
+      name: 'Swinton West Grove',
+      times: [
         {
-          'at': '1031',
-          'daysOfWeek': [
+          at: '1031',
+          daysOfWeek: [
             1,
             2,
             3,
@@ -636,8 +636,8 @@ export const busTimes = {
           ]
         },
         {
-          'at': '1256',
-          'daysOfWeek': [
+          at: '1256',
+          daysOfWeek: [
             1,
             2,
             3,
@@ -647,8 +647,8 @@ export const busTimes = {
           ]
         },
         {
-          'at': '1521',
-          'daysOfWeek': [
+          at: '1521',
+          daysOfWeek: [
             1,
             2,
             3,
@@ -658,8 +658,8 @@ export const busTimes = {
           ]
         },
         {
-          'at': '1746',
-          'daysOfWeek': [
+          at: '1746',
+          daysOfWeek: [
             1,
             2,
             3,
@@ -671,11 +671,11 @@ export const busTimes = {
       ]
     },
     {
-      'name': 'Amotherby BATA',
-      'times': [
+      name: 'Amotherby BATA',
+      times: [
         {
-          'at': '1035',
-          'daysOfWeek': [
+          at: '1035',
+          daysOfWeek: [
             1,
             2,
             3,
@@ -685,8 +685,8 @@ export const busTimes = {
           ]
         },
         {
-          'at': '1300',
-          'daysOfWeek': [
+          at: '1300',
+          daysOfWeek: [
             1,
             2,
             3,
@@ -696,8 +696,8 @@ export const busTimes = {
           ]
         },
         {
-          'at': '1524',
-          'daysOfWeek': [
+          at: '1524',
+          daysOfWeek: [
             1,
             2,
             3,
@@ -707,8 +707,8 @@ export const busTimes = {
           ]
         },
         {
-          'at': '1750',
-          'daysOfWeek': [
+          at: '1750',
+          daysOfWeek: [
             1,
             2,
             3,
@@ -720,11 +720,11 @@ export const busTimes = {
       ]
     },
     {
-      'name': 'Appleton le Street Cresswell Arms',
-      'times': [
+      name: 'Appleton le Street Cresswell Arms',
+      times: [
         {
-          'at': '1038',
-          'daysOfWeek': [
+          at: '1038',
+          daysOfWeek: [
             1,
             2,
             3,
@@ -734,8 +734,8 @@ export const busTimes = {
           ]
         },
         {
-          'at': '1303',
-          'daysOfWeek': [
+          at: '1303',
+          daysOfWeek: [
             1,
             2,
             3,
@@ -745,8 +745,8 @@ export const busTimes = {
           ]
         },
         {
-          'at': '1527',
-          'daysOfWeek': [
+          at: '1527',
+          daysOfWeek: [
             1,
             2,
             3,
@@ -756,8 +756,8 @@ export const busTimes = {
           ]
         },
         {
-          'at': '1753',
-          'daysOfWeek': [
+          at: '1753',
+          daysOfWeek: [
             1,
             2,
             3,
@@ -769,11 +769,11 @@ export const busTimes = {
       ]
     },
     {
-      'name': 'Slingsby Green',
-      'times': [
+      name: 'Slingsby Green',
+      times: [
         {
-          'at': '1044',
-          'daysOfWeek': [
+          at: '1044',
+          daysOfWeek: [
             1,
             2,
             3,
@@ -783,8 +783,8 @@ export const busTimes = {
           ]
         },
         {
-          'at': '1309',
-          'daysOfWeek': [
+          at: '1309',
+          daysOfWeek: [
             1,
             2,
             3,
@@ -794,8 +794,8 @@ export const busTimes = {
           ]
         },
         {
-          'at': '1533',
-          'daysOfWeek': [
+          at: '1533',
+          daysOfWeek: [
             1,
             2,
             3,
@@ -805,8 +805,8 @@ export const busTimes = {
           ]
         },
         {
-          'at': '1759',
-          'daysOfWeek': [
+          at: '1759',
+          daysOfWeek: [
             1,
             2,
             3,
@@ -818,11 +818,11 @@ export const busTimes = {
       ]
     },
     {
-      'name': 'Hovingham Worsley Arms',
-      'times': [
+      name: 'Hovingham Worsley Arms',
+      times: [
         {
-          'at': '1050',
-          'daysOfWeek': [
+          at: '1050',
+          daysOfWeek: [
             1,
             2,
             3,
@@ -832,8 +832,8 @@ export const busTimes = {
           ]
         },
         {
-          'at': '1315',
-          'daysOfWeek': [
+          at: '1315',
+          daysOfWeek: [
             1,
             2,
             3,
@@ -843,8 +843,8 @@ export const busTimes = {
           ]
         },
         {
-          'at': '1539',
-          'daysOfWeek': [
+          at: '1539',
+          daysOfWeek: [
             1,
             2,
             3,
@@ -854,8 +854,8 @@ export const busTimes = {
           ]
         },
         {
-          'at': '1805',
-          'daysOfWeek': [
+          at: '1805',
+          daysOfWeek: [
             1,
             2,
             3,

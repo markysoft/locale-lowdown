@@ -29,6 +29,10 @@ export function getDayOfWeek(date: Date): string {
     return dayNames[date.getDay()]
 }
 
+export function dayOfWeekFromDayNumber(dayNumber: number): string {
+    return dayNames[dayNumber]
+}
+
 export function toHourMinuteString(date: Date): string {
     const hours = date.getHours().toString().padStart(2, '0')
     const minutes = date.getMinutes().toString().padStart(2, '0')
