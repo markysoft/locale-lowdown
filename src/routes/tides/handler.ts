@@ -11,6 +11,6 @@ export async function handleGetTides(req: Request, res: ResponseBuilder): Promis
     res.set('Cache-Control', `public, max-age=${twelveHoursInSeconds}`)
     res.set('Content-Type', 'text/html')
 
-    const tideRecord = await cacheWrapper<TideRecord>('tides', twelveHoursInSeconds, () => getTides())
+    const tideRecord = await cacheWrapper<TideRecord>('tide', twelveHoursInSeconds, () => getTides())
     res.send(Sqrl.render(departial('tides'), { tideRecord }))
 }
