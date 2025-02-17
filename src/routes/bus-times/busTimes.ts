@@ -1,4 +1,19 @@
-export const busTimes = {
+export interface BusTime {
+  at: string;
+  daysOfWeek: number[];
+}
+
+export interface BusStop {
+  name: string;
+  times: BusTime[];
+}
+
+export interface BusTimes {
+  toMalton: BusStop[];
+  fromMalton: BusStop[];
+}
+
+export const busTimes: BusTimes = {
   toMalton: [
     {
       name: 'Hovingham Worsley Arms',

@@ -1,7 +1,6 @@
-
 import { describe, test } from 'node:test'
 import assert from 'node:assert/strict'
-import { getNextBusToMalton } from '../../src/routes/bus-times/getNextBus'
+import { getNextBusToMalton, getNextBus } from '../../src/routes/bus-times/getNextBus'
 
 describe('Bus Times', () => {
     test('Should return 1328 for 12:00', () => {
@@ -22,5 +21,10 @@ describe('Bus Times', () => {
         console.log(nextBusToMalton)
         assert.ok(nextBusToMalton)
         assert.strictEqual(nextBusToMalton, '07:28 on Monday')
+    })
+
+    test('Should return "No buses available" when no buses are available', () => {
+        const nextBus = getNextBus(new Date('2025-02-14T09:00:00Z'), 'Test Stop', [{ name: 'Test Stop', times: [] }])
+        assert.strictEqual(nextBus, 'No buses available')
     })
 })
