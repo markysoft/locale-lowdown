@@ -21,5 +21,5 @@ export async function handleGetWeekWeather(req: Request, res: ResponseBuilder): 
     res.set('Content-Type', 'text/html')
 
     const weekWeather = await cacheWrapper<WeekAheadDay[]>('week-weather', oneHourInSeconds, () => getWeatherForWeek())
-    res.send(Sqrl.render(departial('weather-week'), { weekWeather }))
+    res.send(Sqrl.render(departial('week-weather'), { weekWeather }))
 }
