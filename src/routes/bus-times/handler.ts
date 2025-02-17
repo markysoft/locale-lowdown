@@ -3,8 +3,8 @@ import * as Sqrl from 'squirrelly'
 import { getNextBusFromMalton, getNextBusToMalton } from './getNextBus'
 import { departial } from '../../lib/departial'
 
-export async function handleGetNextBus(req: Request, res: ResponseBuilder) {
-    console.log('Getting next bus from Malton')
+export async function handleGetNextBus(req: Request, res: ResponseBuilder): Promise<void> {
+    console.log('Getting next buses')
     res.set('Content-Type', 'text/html')
 
     const now = new Date()

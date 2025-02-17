@@ -2,7 +2,7 @@ import { ResponseBuilder } from '@fermyon/spin-sdk'
 import * as Sqrl from 'squirrelly'
 import { readFile } from './readFile'
 
-export async function handleError(res: ResponseBuilder, error: unknown) {
+export async function handleError(res: ResponseBuilder, error: unknown) : Promise<void> {
     res.set('Content-Type', 'application/json')
     res.statusCode = 500
     const template = await readFile('./templates/error.sqrl')

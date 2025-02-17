@@ -6,7 +6,7 @@ import { WeekAheadDay } from './schemas/Weather'
 import { cacheWrapper } from '../../lib/cache'
 import { departial } from '../../lib/departial'
 
-export async function handleGetWeather(req: Request, res: ResponseBuilder) {
+export async function handleGetWeather(req: Request, res: ResponseBuilder): Promise<void> {
     console.log('getting weather')
     res.set('Cache-Control', `public, max-age=${oneHourInSeconds}`)
     res.set('Content-Type', 'text/html')
@@ -15,7 +15,7 @@ export async function handleGetWeather(req: Request, res: ResponseBuilder) {
     res.send(Sqrl.render(departial('weather'), { weatherRecord }))
 }
 
-export async function handleGetWeekWeather(req: Request, res: ResponseBuilder) {
+export async function handleGetWeekWeather(req: Request, res: ResponseBuilder): Promise<void> {
     console.log('getting weather for the week')
     res.set('Cache-Control', `public, max-age=${oneHourInSeconds}`)
     res.set('Content-Type', 'text/html')

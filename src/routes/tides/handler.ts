@@ -6,7 +6,7 @@ import { TideRecord } from './schemas/Tide'
 import { cacheWrapper } from '../../lib/cache'
 import { departial } from '../../lib/departial'
 
-export async function handleGetTides(req: Request, res: ResponseBuilder) {
+export async function handleGetTides(req: Request, res: ResponseBuilder): Promise<void> {
     console.log('getting tides')
     res.set('Cache-Control', `public, max-age=${twelveHoursInSeconds}`)
     res.set('Content-Type', 'text/html')

@@ -6,16 +6,16 @@ import { cacheWrapper } from '../../lib/cache'
 import { BankHoliday } from './schemas/BankHoliday'
 import { departial } from '../../lib/departial'
 
-export async function handleGetBankHolidays(req: Request, res: ResponseBuilder) {
+export async function handleGetBankHolidays(req: Request, res: ResponseBuilder): Promise<void> {
     console.log('getting bank holidays')
     res.set('Cache-Control', `public, max-age=${twentyFourHoursInSeconds}`)
     res.set('Content-Type', 'text/html')
-    
+
     const holidays = await cacheWrapper<BankHoliday[]>('bank-holidays', twentyFourHoursInSeconds, () => getBankHolidays())
     res.send(Sqrl.render(departial('holiday-list'), { holidays }))
 }
 
-export async function handleGetNextBankHoliday(req: Request, res: ResponseBuilder) {
+export async function handleGetNextBankHoliday(req: Request, res: ResponseBuilder): Promise<void> {
     console.log('getting next bank holiday')
     res.set('Cache-Control', `public, max-age=${twentyFourHoursInSeconds}`)
     res.set('Content-Type', 'text/html')

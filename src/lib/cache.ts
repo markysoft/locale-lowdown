@@ -16,7 +16,6 @@ interface CachedValue<T> {
     expiresAt?: number
 }
 
-
 export async function cacheWrapper<T>(key: string, expiresInSeconds: number, fn: () => Promise<T>): Promise<T> {
     const cached = getFromCache(key) as CachedValue<T> | undefined
     if (cached?.expiresAt && cached.expiresAt > Date.now()) {

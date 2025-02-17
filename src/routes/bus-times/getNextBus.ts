@@ -2,15 +2,15 @@ import { applyBritishSummerTime, dayOfWeekFromDayNumber, toHourMinuteString } fr
 import { HomeBusStop, TownBusStop } from '../../secretConfig'
 import { BusStop, BusTime, busTimes } from './busTimes'
 
-export function getNextBusToMalton(currentTime: Date) {
+export function getNextBusToMalton(currentTime: Date): string {
     return getNextBus(applyBritishSummerTime(currentTime), HomeBusStop, busTimes.toMalton)
 }
 
-export function getNextBusFromMalton(currentTime: Date) {
+export function getNextBusFromMalton(currentTime: Date): string {
     return getNextBus(applyBritishSummerTime(currentTime), TownBusStop, busTimes.fromMalton)
 }
 
-export function getNextBus(currentTime: Date, stopName: string, schedule: BusStop[]) {
+export function getNextBus(currentTime: Date, stopName: string, schedule: BusStop[]) : string {
     const currentHourMins = toHourMinuteString(currentTime).replace(':', '')
     const dayOfWeek = currentTime.getDay()
     const myStopTimes = schedule

@@ -3,7 +3,7 @@ import parse from 'node-html-parser'
 import { TideSchema, Tide, TideRecordSchema, TideRecord } from './schemas/Tide'
 import { TideLocation } from '../../secretConfig'
 
-export async function getTidesRssText() {
+export async function getTidesRssText(): Promise<string> {
     const tidesResponse = await fetch(`https://www.tidetimes.org.uk/${TideLocation}-tide-times.rss`)
     if (!tidesResponse.ok) {
         throw new Error(`Failed to fetch tides: ${tidesResponse.statusText}`)
