@@ -10,6 +10,7 @@ export async function handleGetTides(req: Request, res: ResponseBuilder) {
     console.log('getting tides')
     res.set('Cache-Control', `public, max-age=${twelveHoursInSeconds}`)
     res.set('Content-Type', 'text/html')
-    const tideRecord = await cacheWrapper<TideRecord>('tidesx', twelveHoursInSeconds, () => getTides())
+
+    const tideRecord = await cacheWrapper<TideRecord>('tides', twelveHoursInSeconds, () => getTides())
     res.send(Sqrl.render(departial('tides'), { tideRecord }))
 }
