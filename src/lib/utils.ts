@@ -53,3 +53,22 @@ export function kmToMiles(km: number): number {
     const milesPerKm = 0.621
     return Math.round(km * milesPerKm)
 }
+
+export function applyBritishSummerTime(date: Date): Date {
+    const year = date.getFullYear()
+    const startBST = getLastSundayOfMonth(year, 2) // Last Sunday in March
+    const endBST = getLastSundayOfMonth(year, 9) // Last Sunday in October
+
+    if (date >= startBST && date < endBST) {
+        // Apply BST (add one hour)
+        return new Date(date.getTime() + 60 * 60 * 1000)
+    }
+    return date
+}
+
+export function getLastSundayOfMonth(year: number, month: number): Date {
+    const lastDay = new Date(year, month + 1, 0) // Last day of the month
+    const dayOfWeek = lastDay.getDay()
+    const lastSunday = lastDay.getDate() - dayOfWeek // Calculate the last Sunday
+    return new Date(year, month, lastSunday)
+}

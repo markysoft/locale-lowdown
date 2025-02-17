@@ -1,13 +1,13 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { dayOfWeekFromDayNumber, toHourMinuteString } from '../../lib/utils'
+import { applyBritishSummerTime, dayOfWeekFromDayNumber, toHourMinuteString } from '../../lib/utils'
 import { busTimes } from './busTimes'
 
 export function getNextBusToMalton(currentTime: Date) {
-    return getNextBus(currentTime, 'Barton le Street', busTimes.toMalton)
+    return getNextBus(applyBritishSummerTime(currentTime), 'Barton le Street', busTimes.toMalton)
 }
 
 export function getNextBusFromMalton(currentTime: Date) {
-    return getNextBus(currentTime, 'MALTON Bus Station', busTimes.fromMalton)
+    return getNextBus(applyBritishSummerTime(currentTime), 'MALTON Bus Station', busTimes.fromMalton)
 }
 
 export function getNextBus(currentTime: Date, stopName: string, schedule: any) {
