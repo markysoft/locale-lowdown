@@ -57,19 +57,21 @@ router.all('*', (_, req, res) => { handleDefaultRoute(req, res) })
 async function loadTemplates(): Promise<boolean> {
     // can only use file functions after webpack intiialisation, so lazy load it
     if (!templateLoaded) {
-        const bankHolidayTemplate = await readFile('./templates/bank-holiday.sqrl')
-        Sqrl.templates.define('bank-holiday', Sqrl.compile(bankHolidayTemplate))
-        const weatherTemplate = await readFile('./templates/weather.sqrl')
-        Sqrl.templates.define('weather', Sqrl.compile(weatherTemplate))
-        const tidesTemplate = await readFile('./templates/tides.sqrl')
-        Sqrl.templates.define('tides', Sqrl.compile(tidesTemplate))
-        const nextBusTemplate = await readFile('./templates/next-bus.sqrl')
-        Sqrl.templates.define('next-bus', Sqrl.compile(nextBusTemplate))
+        await addPartial('bank-holiday')
+        await addPartial('holiday-list')
+        await addPartial('weather')
+        await addPartial('tides')
+        await addPartial('next-bus')
         templateLoaded = true
     }
     return true
 }
 
+
+async function addPartial(name: string) {
+    const bankHolidayTemplate = await readFile(`./templates/${name}.sqrl`)
+    Sqrl.templates.define(name, Sqrl.compile(bankHolidayTemplate))
+}
 
 export async function handler(req: Request, res: ResponseBuilder) {
     await loadTemplates()
