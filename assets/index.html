@@ -19,10 +19,21 @@
     <section class="section">
         <div class="container">
             <h1 class="title">
-                Locale Lowdown - Malton
+                Locale Lowdown
             </h1>
+            <p class="subtitle">
+               Barton-le-Street Edition
+            </p>
             <div class="columns">
                 <div class="column is-half">
+                    <div class="content">
+                        <h2 class="title has-text-primary-15">Travel</h2>
+                        <div hx-get="/api/next-bus" hx-trigger="load">
+                            <div class="spinner box has-text-centered">
+                                <div class="fa fa-spinner fa-spin"></div>
+                            </div>
+                        </div>
+                    </div>
                     <div class="content">
                         <h2 class="title has-text-primary-15">Tides</h2>
                         <div hx-get="/api/tides" hx-trigger="load">
@@ -49,22 +60,6 @@
                     </div>
                 </div>
                 <div class="column is-half">
-                    <div class="content">
-                        <h2 class="title has-text-primary-15">Next Bus to Malton</h2>
-                        <div hx-get="/api/next-bus-to-malton" hx-trigger="load">
-                            <div class="spinner box has-text-centered">
-                                <div class="fa fa-spinner fa-spin"></div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="content">
-                        <h2 class="title has-text-primary-15">Next Bus from Malton</h2>
-                        <div hx-get="/api/next-bus-from-malton" hx-trigger="load">
-                            <div class="spinner box has-text-centered">
-                                <div class="fa fa-spinner fa-spin"></div>
-                            </div>
-                        </div>
-                    </div>
                     <div class="content">
                         <h2 class="title has-text-primary-15">Bank Holidays</h2>
                         <div hx-get="/api/bank-holidays" hx-trigger="load">

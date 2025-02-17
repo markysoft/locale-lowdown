@@ -6,7 +6,7 @@ import { handleDefaultRoute } from './routes/default/handler'
 import { readFile, readFileStream } from './lib/readFile'
 import { handleGetTides } from './routes/tides/handler'
 import { handleGetWeather, handleGetWeekWeather } from './routes/weather/handler'
-import { handleGetNextBusFromMalton, handleGetNextBusToMalton } from './routes/bus-times/handler'
+import { handleGetNextBus } from './routes/bus-times/handler'
 
 
 let templateLoaded = false
@@ -47,12 +47,8 @@ router.get(
     async (_, req: Request, res: ResponseBuilder) => { await handleGetWeekWeather(req, res) })
 
 router.get(
-    '/api/next-bus-to-malton',
-    async (_, req: Request, res: ResponseBuilder) => { await handleGetNextBusToMalton(req, res) })
-router.get(
-    '/api/next-bus-from-malton',
-    async (_, req: Request, res: ResponseBuilder) => { await handleGetNextBusFromMalton(req, res) })
-
+    '/api/next-bus',
+    async (_, req: Request, res: ResponseBuilder) => { await handleGetNextBus(req, res) })
 
 
 router.all('*', (_, req, res) => { handleDefaultRoute(req, res) })
@@ -67,6 +63,8 @@ async function loadTemplates(): Promise<boolean> {
         Sqrl.templates.define('weather', Sqrl.compile(weatherTemplate))
         const tidesTemplate = await readFile('./templates/tides.sqrl')
         Sqrl.templates.define('tides', Sqrl.compile(tidesTemplate))
+        const nextBusTemplate = await readFile('./templates/next-bus.sqrl')
+        Sqrl.templates.define('next-bus', Sqrl.compile(nextBusTemplate))
         templateLoaded = true
     }
     return true

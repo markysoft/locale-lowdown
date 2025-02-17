@@ -7,7 +7,7 @@ export const WeatherSchema = z.object({
   date: z.date().optional().transform((val) => val ? toDayOfWeek(val) : undefined),
   main: z.string().optional(),
   description: z.string().transform(splitOnSemiColons).optional(),
-  chanceOfRain: z.number().transform((val) => `${val * 100}%`).optional(),
+  chanceOfRain: z.number().transform((val) => `${Math.round(val * 100)}%`).optional(),
   temp: z.object({
     max: z.number().optional(),
     min: z.number().optional(),
