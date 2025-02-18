@@ -19,7 +19,7 @@ export const WeatherCard: FC<{ weekAheadDay: WeekAheadDay }> = (props: { weekAhe
                         {props.weekAheadDay.weather.wind.degrees}<br />
                         Gusts up to {props.weekAheadDay.weather.wind.maxSpeed} MPH</p>
 
-                    <p><strong>Sunrise:</strong> {props.weekAheadDay.sun.rise},
+                    <p><strong>Sunrise:</strong> {props.weekAheadDay.sun.rise},&nbsp;
                         <strong>Sunset:</strong> {props.weekAheadDay.sun.set}
                     </p>
                 </div>
