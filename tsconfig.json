@@ -4,10 +4,11 @@
         "noImplicitAny": true,
         "module": "es6",
         "target": "es2020",
-        "jsx": "react",
+        "jsx": "react-jsx",
+        "jsxImportSource": "hono/jsx",
         "skipLibCheck": true,
         "lib": [
-            "ES2015",
+            "ES2020",
             "WebWorker"
         ],
         "allowJs": true,

@@ -3,19 +3,32 @@ spin_manifest_version = 2
 [application]
 authors = ["markysoft <markharrop@yahoo.com>"]
 description = ""
-name = "spin-fs"
+name = "locale-lowdown"
 version = "0.1.0"
+
+[variables]
+weather_api_key = { required = true }
+home_bus_stop = { default = "Barton le Street" }
+town_bus_stop = { default = "MALTON Bus Station" }
+weather_location_key = { default = "54400_PC" }
+tide_location = { default = "whitby" }
 
 [[trigger.http]]
 route = "/..."
-component = "spin-fs"
+component = "spin-hono"
 
-[component.spin-fs]
+[component.spin-hono]
 key_value_stores = ["default"]
-source = "target/spin-fs.wasm"
+source = "dist/spin-hono.wasm"
 allowed_outbound_hosts = ["https://www.gov.uk", "https://www.tidetimes.org.uk", "http://dataservice.accuweather.com"]
 exclude_files = ["**/node_modules"]
-files = [{ source = "assets", destination = "/" }]
-[component.spin-fs.build]
-command = "npm run build"
-watch = ["src/**/*.ts", "package.json"]
+[component.spin-hono.build]
+command = ["npm install", "npm run build"]
+watch = ["src/**/*.ts", "src/**/*.tsx"]
+
+[component.spin-hono.variables]
+home_bus_stop = "{{ home_bus_stop }}"
+town_bus_stop = "{{ town_bus_stop }}"
+weather_location_key = "{{ weather_location_key }}"
+tide_location = "{{ tide_location }}"
+weather_api_key = "{{ weather_api_key }}"
