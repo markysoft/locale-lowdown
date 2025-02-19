@@ -5,7 +5,8 @@ import { z } from 'zod'
 const AppSettingsSchema = z.object({
     travel: z.object({
         homeBusStop: z.string().default('Barton le Street'),
-        TownBusStop: z.string().default('MALTON Bus Station')
+        townBusStop: z.string().default('MALTON Bus Station'),
+        railApiKey: z.string()
     }),
     weather: z.object({
         apiKey: z.string().optional(),
@@ -27,7 +28,8 @@ export function getAppSettings(): AppSettings {
             appSettings = AppSettingsSchema.parse({
                 travel: {
                     homeBusStop: Variables.get('home_bus_stop'),
-                    TownBusStop: Variables.get('town_bus_stop')
+                    townBusStop: Variables.get('town_bus_stop'),
+                    railApiKey: Variables.get('rail_api_key')
                 },
                 weather: {
                     apiKey: Variables.get('weather_api_key'),
