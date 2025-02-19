@@ -10,7 +10,6 @@ export const TrainDeparturesCard: FC<{ departures: Departures }> = (props: { dep
             </header>
             <div class="card-content">
                 <div class="content has-text-centered">
-                    <p>Generated at {props.departures.generatedAt}</p>
                     <table class="table is-fullwidth">
                         <thead>
                             <tr>
