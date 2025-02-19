@@ -57,8 +57,5 @@ export async function getDepartures(stationCode: string, apiKey: string): Promis
             'x-apikey': apiKey,
         },
     })
-    const json = await result.json()
-    console.log(json)
-    const data = DeparturesSchema.parse(json)
-    return data
+    return DeparturesSchema.parse(await result.json())
 }
