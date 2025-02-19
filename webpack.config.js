@@ -1,9 +1,8 @@
 const path = require('path');
 const SpinSdkPlugin = require("@fermyon/spin-sdk/plugins/webpack")
-const WasiExtPlugin = require("@fermyon/wasi-ext/plugin")
 
 module.exports = {
-    entry: './src/spin.ts',
+    entry: './src/index.tsx',
     experiments: {
         outputModule: true,
     },
@@ -20,18 +19,20 @@ module.exports = {
         extensions: ['.tsx', '.ts', '.js'],
     },
     output: {
-        path: path.resolve(__dirname, './'),
-        filename: 'dist.js',
+        path: path.resolve(__dirname, './build'),
+        filename: 'bundle.js',
         module: true,
         library: {
             type: "module",
         }
     },
     plugins: [
-        new SpinSdkPlugin(),
-        new WasiExtPlugin()
+        new SpinSdkPlugin()
     ],
     optimization: {
         minimize: false
     },
+    performance: {
+        hints: false,
+    }
 };

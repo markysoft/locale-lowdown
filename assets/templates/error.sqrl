@@ -1,8 +1,0 @@
-<article class="message is-danger">
-    <div class="message-header">
-        <p>Error</p>
-    </div>
-    <div class="message-body">
-        {{it.message}}
-    </div>
-</article>

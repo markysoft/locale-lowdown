@@ -1,3 +1,0 @@
-{{@each(it.weekWeather) => weather}}
-  {{@include('weather', {weatherRecord: weather})/}}
-{{/each}}

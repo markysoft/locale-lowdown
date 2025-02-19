@@ -1,3 +1,0 @@
-{{@each(it.holidays) => holiday}}
-  {{@include('bank-holiday', {holiday: holiday})/}}
-{{/each}}

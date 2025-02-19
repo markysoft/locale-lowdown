@@ -1,12 +1,12 @@
 import { readFileSync } from 'fs'
-import { getTideRecord } from '../../src/routes/tides/getTides'
+import { getTideRecord } from '../../src/routes/tides/services/getTides'
 import { test, describe } from 'node:test'
 import assert from 'node:assert/strict'
 describe('getTides', () => {
     test('parses tideRecord from RSS', async () => {
         const text = readFileSync(__dirname + '/../testdata/tides.rss', 'utf-8')
         assert.ok(text)
-        const tideRecord = getTideRecord(text)
+        const tideRecord = getTideRecord(text, 'whitby')
         assert.ok(tideRecord)
         assert.ok(tideRecord.date)
         assert.equal(tideRecord.date, 'Sunday 19 January 2025')
@@ -28,7 +28,7 @@ describe('getTides', () => {
     })
 
     test('gracefully handles empty results RSS', () => {
-        const tideRecord = getTideRecord('')
+        const tideRecord = getTideRecord('', 'whitby')
         assert.ok(tideRecord)
         assert.ok(tideRecord.tides)
         assert.equal(tideRecord.tides.length, 0)
