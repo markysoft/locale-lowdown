@@ -17,7 +17,6 @@ app.get('/bus', (c) => {
 })
 app.get('/train', async (c) => {
     const travelSettings = getAppSettings().travel
-    console.log('rail key:', travelSettings.railApiKey)
     const departures = await getDepartures('MLT', travelSettings.railApiKey)
     return c.render(<TrainDeparturesCard departures={departures} />)
 })
