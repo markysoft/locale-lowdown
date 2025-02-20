@@ -15,9 +15,10 @@ app.get('/bus', (c) => {
         nextBusTo={getNextBusToMalton(now, travelSettings.homeBusStop)
         } />)
 })
-app.get('/train', async (c) => {
+app.get('/train/:code', async (c) => {
+    const code = c.req.param('code').toUpperCase()
     const travelSettings = getAppSettings().travel
-    const departures = await getDepartures('MLT', travelSettings.railApiKey)
+    const departures = await getDepartures(code, travelSettings.railApiKey)
     return c.render(<TrainDeparturesList departures={departures} />)
 })
 

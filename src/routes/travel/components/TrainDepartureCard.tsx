@@ -14,7 +14,7 @@ export const TrainDepartureCard: FC<{ service: Departure }> = (props: { service:
                 <p class="level-item">
                     {props.service.isCancelled
                         ? <strong>Cancelled</strong>
-                        : <span>{props.service.expected === 'On time' ? props.service.expected : <strong>Delayed: expected {props.service.expected}</strong>}</span>
+                        : <span>{props.service.expected === 'On time' ? props.service.expected : <strong>Expected {props.service.expected}</strong>}</span>
                     }
                 </p>
             </div>
