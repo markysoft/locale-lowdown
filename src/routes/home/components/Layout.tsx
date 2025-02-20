@@ -13,7 +13,6 @@ export const Layout: FC = () => {
                 <title>Locale Lowdown - Barton-le-Street Edition</title>
                 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@1.0.2/css/bulma.min.css" />
                 <script src="https://kit.fontawesome.com/c2b6fd3803.js" crossorigin="anonymous"></script>
-                <script src="/site.js"></script>
                 <script src="https://unpkg.com/htmx.org@2.0.4"
                     integrity="sha384-HGfztofotfshcF7+8n44JQL2oJmowVChPTg48S+jvZoztPfvwD79OC/LTtG6dMp+"
                     crossorigin="anonymous"></script>
@@ -34,6 +33,13 @@ export const Layout: FC = () => {
 
                 `}
                 </style>
+                <script dangerouslySetInnerHTML={{
+                    __html: `
+                        document.addEventListener('htmx:sendError', function (event) {
+                            document.querySelector('.error-message').style.display = 'block'
+                        });
+                    `
+                }} />                
             </head>
 
             <body>
@@ -45,8 +51,8 @@ export const Layout: FC = () => {
                         <p class="subtitle">
                             Barton-le-Street Edition
                         </p>
-                        <div class="error-message" style="display: none;">
-                            <p class="has-text-danger">Network issues. Please try again later.</p>
+                        <div class="box error-message" style="position: fixed; bottom: 0em; left: 0em; padding: 1em; z-index: 1000; display: none;">
+                            <p class="has-text-danger is-size-4">Network issues. Please try again later.</p>
                         </div>
                         <div class="columns">
                             <div class="column">
