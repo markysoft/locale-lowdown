@@ -10,10 +10,10 @@ describe('WeatherSchema', () => {
             description: 'light rain;scattered clouds',
             chanceOfRain: 0.33333333333333,
             temp: {
-                max: 15,
-                min: 5,
-                day: 10,
-                night: 7,
+                max: 15.2,
+                min: 4.9,
+                day: 10.1,
+                night: 7.4,
             },
             wind: {
                 speed: 20,

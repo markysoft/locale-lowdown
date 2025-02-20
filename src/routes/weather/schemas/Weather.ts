@@ -9,10 +9,10 @@ export const WeatherSchema = z.object({
   description: z.string().transform(splitOnSemiColons).optional(),
   chanceOfRain: z.number().transform((val) => `${Math.round(val * 100)}%`).optional(),
   temp: z.object({
-    max: z.number().optional(),
-    min: z.number().optional(),
-    day: z.number().optional(),
-    night: z.number().optional(),
+    max: z.number().transform(Math.round).optional(),
+    min: z.number().transform(Math.round).optional(),
+    day: z.number().transform(Math.round).optional(),
+    night: z.number().transform(Math.round).optional(),
   }),
   wind: z.object({
     speed: z.number().transform(kmToMiles).optional(),

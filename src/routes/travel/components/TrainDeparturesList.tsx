@@ -11,7 +11,7 @@ export const TrainDeparturesList: FC<{ departures: Departures }> = (props: { dep
     }
 
     const showPlatforms = (): boolean => {
-        return props.departures.crs === 'SCA'
+        return props.departures.crs !== 'MLT'
     }
 
     return (
@@ -35,6 +35,15 @@ export const TrainDeparturesList: FC<{ departures: Departures }> = (props: { dep
                                 hx-target="#train-departures"
                                 hx-indicator="#train-spinner">
                                 Scarborough
+                            </a>
+                        </li>
+                        <li class={isActive('YRK')}>
+                            <a
+                                aria-label="get York train times"
+                                hx-get="/travel/train/yrk"
+                                hx-target="#train-departures"
+                                hx-indicator="#train-spinner">
+                                York
                             </a>
                         </li>
                     </ul>
