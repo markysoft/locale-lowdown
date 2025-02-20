@@ -5,7 +5,7 @@ export const NextBusCard: FC<{ nextBusTo: string, nextBusFrom: string }> = (prop
     return (
         <div class="card">
             <header class="card-header">
-                <p class="card-header-title">Bus</p>
+                <p class="card-header-title">Bus Departures</p>
             </header>
             <div class="card-content">
                 <div class="content has-text-centered">
