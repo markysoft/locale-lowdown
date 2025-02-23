@@ -20,7 +20,7 @@ export const DepartureSchema = z.object({
     ),
     std: z.string(),
     etd: z.string(),
-    platform: z.string(),
+    platform: z.string().optional().default('TBA'),
     operator: z.string(),
     isCancelled: z.boolean(),
     isReverseFormation: z.boolean(),
