@@ -12,11 +12,9 @@ export const WeatherCard: FC<{ weekAheadDay: WeekAheadDay }> = (props: { weekAhe
                         {props.weekAheadDay.weather.description?.map((line) => <>{line}<br /></>)}
                     </p>
                     <p><strong>Chance of Rain:</strong> {props.weekAheadDay.weather.chanceOfRain}</p>
-                    <p><strong>Temp:</strong> {props.weekAheadDay.weather.temp.min} to
-                        {props.weekAheadDay.weather.temp.max}°C</p>
+                    <p><strong>Temp:</strong> {props.weekAheadDay.weather.temp.min} to {props.weekAheadDay.weather.temp.max}°C</p>
 
-                    <p><strong>Wind: </strong>{props.weekAheadDay.weather.wind.speed} MPH
-                        {props.weekAheadDay.weather.wind.degrees}<br />
+                    <p><strong>Wind: </strong>{props.weekAheadDay.weather.wind.speed} MPH {props.weekAheadDay.weather.wind.degrees}<br />
                         Gusts up to {props.weekAheadDay.weather.wind.maxSpeed} MPH</p>
 
                     <p><strong>Sunrise:</strong> {props.weekAheadDay.sun.rise},&nbsp;
