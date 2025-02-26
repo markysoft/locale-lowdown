@@ -65,7 +65,6 @@ export const Layout: FC = () => {
                                     </div>
                                 </div>                                
                                 <div class="content">
-                                    <h2 class="title has-text-primary-15">Travel</h2>
                                     <div hx-get="/travel/bus" hx-trigger="load">
                                         <div class="spinner box has-text-centered">
                                             <div class="fa fa-spinner fa-spin"></div>

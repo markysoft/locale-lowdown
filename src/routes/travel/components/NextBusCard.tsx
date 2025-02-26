@@ -3,10 +3,9 @@ import { FC } from 'hono/jsx'
 export const NextBusCard: FC<{ nextBusTo: string, nextBusFrom: string }> = (props: { nextBusTo: string, nextBusFrom: string }) => {
 
     return (
+        <>
+        <h2 class="title has-text-primary-15">Bus Departures</h2>
         <div class="card">
-            <header class="card-header">
-                <p class="card-header-title">Bus Departures</p>
-            </header>
             <div class="card-content">
                 <div class="content has-text-centered">
                     <p>
@@ -18,5 +17,6 @@ export const NextBusCard: FC<{ nextBusTo: string, nextBusFrom: string }> = (prop
                 </div>
             </div>
         </div>
+        </>
     )
 }

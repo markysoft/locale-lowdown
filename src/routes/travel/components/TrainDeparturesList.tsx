@@ -15,6 +15,8 @@ export const TrainDeparturesList: FC<{ departures: Departures }> = (props: { dep
     }
 
     return (
+        <>
+        <h2 class="title has-text-primary-15">Trains</h2>
         <div class="card">
             <header class="card-header">
                 <div class="tabs">
@@ -63,5 +65,6 @@ export const TrainDeparturesList: FC<{ departures: Departures }> = (props: { dep
                 }
             </div>
         </div>
+        </>
     )
 }
