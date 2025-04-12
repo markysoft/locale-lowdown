@@ -1,5 +1,5 @@
 import { z } from 'zod'
-import { toHourMinuteString } from '../../../lib/utils'
+import { applyBritishSummerTime, toHourMinuteString } from '../../../lib/utils'
 
 export const DepartureSchema = z.object({
     futureCancellation: z.boolean(),
@@ -40,7 +40,7 @@ export const DepartureSchema = z.object({
 
 export const DeparturesSchema = z.object({
     trainServices: z.array(DepartureSchema),
-    generatedAt: z.coerce.date().transform((date) => toHourMinuteString(date)),
+    generatedAt: z.coerce.date().transform((date) => toHourMinuteString(applyBritishSummerTime(date))),
     locationName: z.string(),
     crs: z.string(),
     filterType: z.string(),
