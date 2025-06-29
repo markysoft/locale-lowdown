@@ -15,6 +15,11 @@ Other than that, install [Spin](https://developer.fermyon.com/spin/v3/index) as 
 npm install
 npm run dev
 ```
+or 
+```
+spin watch
+spin deploy
+```
 
 ## Front End
 

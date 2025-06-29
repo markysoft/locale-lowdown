@@ -8,6 +8,7 @@ import bankHolidays from './routes/bank-holidays'
 import travel from './routes/travel'
 import tides from './routes/tides'
 import weather from './routes/weather'
+import bins from './routes/bins'
 import { ErrorArticle } from './routes/home/components/ErrorArticle'
 
 console.log('Starting...')
@@ -24,6 +25,7 @@ app.route('/bank-holidays', bankHolidays)
 app.route('/travel', travel)
 app.route('/tides', tides)
 app.route('/weather', weather)
+app.route('/bins', bins)
 
 app.notFound((c) => c.text('No such route, try another!', 404))
 
