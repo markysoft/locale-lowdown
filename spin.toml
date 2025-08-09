@@ -8,6 +8,7 @@ version = "0.1.0"
 
 [variables]
 weather_api_key = { required = true }
+open_weather_api_key = { required = true }
 rail_api_key = { required = true }
 home_bus_stop = { default = "Barton le Street" }
 town_bus_stop = { default = "MALTON Bus Station" }
@@ -21,7 +22,12 @@ component = "spin-hono"
 [component.spin-hono]
 key_value_stores = ["default"]
 source = "dist/spin-hono.wasm"
-allowed_outbound_hosts = ["https://www.gov.uk", "https://www.tidetimes.org.uk", "http://dataservice.accuweather.com", "https://api1.raildata.org.uk"]
+allowed_outbound_hosts = [
+  "https://www.gov.uk", 
+  "https://www.tidetimes.org.uk",
+  "http://dataservice.accuweather.com",
+  "https://api.openweathermap.org",
+  "https://api1.raildata.org.uk"]
 exclude_files = ["**/node_modules"]
 [component.spin-hono.build]
 command = ["npm install", "npm run build"]
@@ -32,5 +38,5 @@ home_bus_stop = "{{ home_bus_stop }}"
 town_bus_stop = "{{ town_bus_stop }}"
 weather_location_key = "{{ weather_location_key }}"
 tide_location = "{{ tide_location }}"
-weather_api_key = "{{ weather_api_key }}"
+open_weather_api_key = "{{ open_weather_api_key }}"
 rail_api_key = "{{ rail_api_key }}"

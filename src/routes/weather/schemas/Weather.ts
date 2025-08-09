@@ -15,8 +15,8 @@ export const WeatherSchema = z.object({
     night: z.number().transform(Math.round).optional(),
   }),
   wind: z.object({
-    speed: z.number().transform(kmToMiles).optional(),
-    maxSpeed: z.number().transform(kmToMiles).optional(),
+    speed: z.number().optional(),
+    maxSpeed: z.number().optional(),
     degrees: z.number().transform(degreesToCompass).optional(),
   }),
 })

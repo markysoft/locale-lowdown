@@ -130,7 +130,7 @@ export const Layout: FC = () => {
                                     <a href="https://bulma.io/" target="_blank">Bulma</a></strong> & <strong>
                                     <a href="https://fontawesome.com">Font Awesome</a></strong> frontend<br />
                                 Tide times from <a href="https://www.tidetimes.org.uk/" target="_blank">www.tidetimes.org.uk</a>,
-                                weather from <a href="https://www.accuweather.com/" target="_blank">www.accuweather.com</a>,
+                                weather from <a href="https://openweathermap.org/" target="_blank">www.openweathermap.org</a>,
                                 bank holidays from <a href="https://www.gov.uk/bank-holidays/" target="_blank">www.gov.uk</a>
                                 <p>Source available at <a href="https://github.com/markysoft/locale-lowdown">locale-lowdown</a></p>
                             </div>

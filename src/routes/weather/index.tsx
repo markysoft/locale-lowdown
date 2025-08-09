@@ -1,7 +1,7 @@
 import { Hono } from 'hono'
 import { cacheWrapper } from '../../lib/cache'
 import { oneHourInSeconds } from '../../constants'
-import { getTodayWeather, getWeekWeather } from './services/getWeather'
+import { getTodayWeather, getWeekWeather } from './services/getOpenWeather'
 import { WeekAheadDay } from './schemas/Weather'
 import { WeatherCard } from './components/WeatherCard'
 import { WeatherList } from './components/WeatherList'

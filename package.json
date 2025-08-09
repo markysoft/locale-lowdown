@@ -7,6 +7,7 @@
         "build": "knitwit --out-dir build/wit/knitwit --out-world combined && npx webpack --mode=production && npx mkdirp dist && npx j2w -i build/bundle.js -d build/wit/knitwit -n combined -o dist/spin-hono.wasm",
         "dev": "spin watch",
         "test": "glob -c \"tsx  --test --test-reporter spec \" \"./test-unit/**/*.test.ts\"",
+        "test-int": "glob -c \"tsx  --test --watch --test-reporter spec \" \"./test-integration/**/*.test.ts\"",
         "test:watch": "glob -c \"tsx --test --watch --test-reporter spec \" \"./test-unit/**/*.test.ts\""
     },
     "keywords": [],
