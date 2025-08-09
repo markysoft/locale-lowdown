@@ -1,5 +1,6 @@
-import { BinDay } from '../services/getNextBinDays'
-import { toFriendlyDate } from '../../../lib/utils'
+
+import { toFriendlyDate } from '@/lib/utils'
+import { BinDay } from '../schemas/BinDay'
 
 export function BinsCard({ nextBins }: { nextBins: BinDay[] }) {
 

@@ -1,8 +1,5 @@
-export interface BinDay {
-    date: Date;
-    type: 'rubbish' | 'red bin' | 'blue bin';
-    description: string;
-}
+import { BinDay } from "../schemas/BinDay"
+
 
 const firstBinDate = new Date('2025-07-02') // Start date for bin schedule
 const dayInMilliseconds = 24 * 60 * 60 * 1000
@@ -25,11 +22,9 @@ export function getNextBinDay(currentDate: Date): BinDay {
 
 
     const nextWeds = getNextWednesday(currentDate)
-    console.log('Next Wednesday:', nextWeds)
     const weeksSinceFirstBin = Math.floor(Math.abs(
         (nextWeds.getTime() - firstBinDate.getTime()) / weekInMilliseconds))
 
-    console.log('weeksSinceFirstBin', weeksSinceFirstBin)
     if (weeksSinceFirstBin % 2 === 0) {
         return {
             date: nextWeds,
@@ -55,16 +50,13 @@ export function getNextBinDay(currentDate: Date): BinDay {
 function addDays(date: Date, days: number): Date {
     const result = new Date(date)
     result.setDate(result.getDate() + days)
-    console.log('Adding days:', date, ' + ', days, ' = ', result)
     return result
 }
 
 function getNextWednesday(date: Date): Date {
     if (date.getDay() == 3) {
-        console.log('Today is Wednesday:', date)
         return date
     }
     const nextWednesday = new Date(date)
-    console.log('day of week: '+ nextWednesday.getDay())
     return addDays(nextWednesday, ((3 - nextWednesday.getDay() + 7) % 7))
 }
