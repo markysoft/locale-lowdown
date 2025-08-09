@@ -1,7 +1,7 @@
 import { Hono } from 'hono'
 import { NextBusCard } from './components/NextBusCard'
 import { getNextBusFromMalton, getNextBusToMalton } from './services/getNextBus'
-import { getAppSettings } from '../../appSettings'
+import { getAppSettings } from '@/appSettings'
 import { getDepartures } from './services/trainTimes'
 import { TrainDeparturesList } from './components/TrainDeparturesList'
 

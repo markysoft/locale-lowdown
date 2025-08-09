@@ -1,9 +1,9 @@
 import { Hono } from 'hono'
 import { getBankHolidays } from './services/getBankHolidays'
-import { twentyFourHoursInSeconds } from '../../constants'
+import { twentyFourHoursInSeconds } from '@/constants'
 import { BankHolidayCard } from './components/BankHolidayCard'
 import { BankHolidayList } from './components/BankHolidayList'
-import { cacheWrapper } from '../../lib/cache'
+import { cacheWrapper } from '@/lib/cache'
 import { BankHoliday } from './schemas/BankHoliday'
 
 const app = new Hono()

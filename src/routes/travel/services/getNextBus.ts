@@ -1,4 +1,4 @@
-import { applyBritishSummerTime, dayOfWeekFromDayNumber, toHourMinuteString } from '../../../lib/utils'
+import { applyBritishSummerTime, dayOfWeekFromDayNumber, toHourMinuteString } from '@/lib/utils'
 import { BusStop, BusTime, busTimes } from './busTimes'
 
 export function getNextBusToMalton(currentTime: Date, busStop: string): string {

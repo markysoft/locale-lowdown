@@ -1,10 +1,10 @@
 import { Hono } from 'hono'
-import { cacheWrapper } from '../../lib/cache'
+import { cacheWrapper } from '@/lib/cache'
 import { TideRecord } from './schemas/Tide'
-import { twelveHoursInSeconds } from '../../constants'
+import { twelveHoursInSeconds } from '@/constants'
 import { getTides } from './services/getTides'
 import { TidesCard } from './components/TidesCard'
-import { getAppSettings } from '../../appSettings'
+import { getAppSettings } from '@/appSettings'
 
 const app = new Hono()
 

@@ -1,5 +1,5 @@
 import { z } from 'zod'
-import { applyBritishSummerTime, toHourMinuteString } from '../../../lib/utils'
+import { applyBritishSummerTime, toHourMinuteString } from '@/lib/utils'
 
 export const stringOrNumberToDate = z
   .string()

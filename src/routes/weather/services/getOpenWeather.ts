@@ -1,4 +1,4 @@
-import { getAppSettings } from '../../../appSettings'
+import { getAppSettings } from '@/appSettings'
 import { MoonSchema } from '../schemas/Moon'
 import { OpenWeather } from '../schemas/OpenWeather'
 import { SunSchema } from '../schemas/SunSchema'

@@ -1,4 +1,5 @@
 import { Hono } from 'hono'
+import { streamSSE } from 'hono/streaming'
 import { logger } from 'hono/logger'
 import { timing } from 'hono/timing'
 import { jsxRenderer } from 'hono/jsx-renderer'
@@ -37,4 +38,20 @@ app.onError((err, c) => {
 //@ts-expect-error fetch is not defined
 addEventListener('fetch', async (event: FetchEvent) => {
   event.respondWith(app.fetch(event.request))
+})
+
+let id = 0
+
+app.get('/sse', async (c) => {
+  return streamSSE(c, async (stream) => {
+    while (true) {
+      const message = `It is ${new Date().toISOString()}`
+      await stream.writeSSE({
+        data: message,
+        event: 'time-update',
+        id: String(id++),
+      })
+      await stream.sleep(1000)
+    }
+  })
 })
