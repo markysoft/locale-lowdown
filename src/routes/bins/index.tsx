@@ -6,7 +6,7 @@ const app = new Hono()
 
 app.get('/', async (c) => {
     const nextBins = getNextFourBinDays(new Date())
-    return c.render(<BinsCard nextBins={nextBins} />)
+    return c.html(<BinsCard nextBins={nextBins} />)
 })
 
 export default app

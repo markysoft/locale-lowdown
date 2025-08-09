@@ -1,6 +1,6 @@
 # Locale Lowdown
 
-Application to explore Spin, Hono and HTMX
+Application to explore Spin, Hono and DataStar
 
 ## Overview
 
@@ -23,7 +23,7 @@ spin deploy
 
 ## Front End
 
-The front end is developed in [HTMX](https://www.htmx.org). Not everything needs to be a Single Page Appliction calling a JSON API!
+The front end is developed in [DataStar](https://www.data-star.dev). Not everything needs to be a Single Page Appliction calling a JSON API!
 
 It's pretty much just a single static web page, where various parts are replaced with a call to the backend upon load, using this pattern:
 
@@ -84,12 +84,12 @@ I had issues with an RSS parsing library due to dependencies, so had to resort t
 Spin cloud comes with a handy key vault store, which I use to cache weather requests etc, as the free tier of Accuweather only allows 50 calls a day.
 ## Summary
 
-Spin + Hono + HTMX makes for an awesome [HATEOAS](https://en.wikipedia.org/wiki/HATEOAS) web site that is responsive, has super quick start up times, and allows the use of powerful JSX templates.
+Spin + Hono + DataStar makes for an awesome [HATEOAS](https://en.wikipedia.org/wiki/HATEOAS) web site that is responsive, has super quick start up times, and allows the use of powerful JSX templates.
 
 There are limits to the amount of standard Node.js libraries supported, but for a simple site that calls other APIs it's fantastic! I look forward to the future of WebAssembly and [Spin](https://developer.fermyon.com/spin/v3/index).
 
 ## External Resources
 
-Tide times from [www.tidetimes.org.uk](https://www.tidetimes.org.uk), weather from [www.accuweather.com](https://www.accuweather.com), train times from [ raildata.org.uk/](https://raildata.org.uk), and bank holidays from [www.gov.uk](http://www.gov.uk/bank-holidays). 
+Tide times from [www.tidetimes.org.uk](https://www.tidetimes.org.uk), weather from [www.openweathermap.org](https://www.openweathermap.org), train times from [ raildata.org.uk/](https://raildata.org.uk), and bank holidays from [www.gov.uk](http://www.gov.uk/bank-holidays). 
 
 The [json-to-zod](https://transform.tools/json-to-zod) site is also a handy conversion tool!

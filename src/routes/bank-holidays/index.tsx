@@ -10,16 +10,14 @@ const app = new Hono()
 
 app.get('/next', async (c) => {
     c.header('Cache-Control', `public, max-age=${twentyFourHoursInSeconds}`)
-
     const holidays = await cacheWrapper<BankHoliday[]>('bank-holidays', twentyFourHoursInSeconds, () => getBankHolidays())
-    const nextHoliday = holidays[0]
-    return c.render(<BankHolidayCard bankHoliday={nextHoliday}  />)
+    return c.html(<div id="bank-holidays-next"><BankHolidayCard bankHoliday={ holidays[0]}  /></div>)
 })
 
 app.get('/upcoming', async (c) => {
     c.header('Cache-Control', `public, max-age=${twentyFourHoursInSeconds}`)
     const holidays = await cacheWrapper<BankHoliday[]>('bank-holidays', twentyFourHoursInSeconds, () => getBankHolidays())
-    return c.render(<BankHolidayList bankHolidays={holidays} />)
+    return c.html(<BankHolidayList bankHolidays={holidays} />)
 })
 
 export default app

@@ -10,7 +10,7 @@ const AppSettingsSchema = z.object({
     }),
     weather: z.object({
         apiKey: z.string().optional(),
-        locationKey: z.string().default('54400_PC')
+        metOfficeApiKey: z.string().optional() // Optional for compatibility with existing code, but should be set in production
     }),
     tide: z.object({
         location: z.string().default('whitby')
@@ -32,8 +32,8 @@ export function getAppSettings(): AppSettings {
                     railApiKey: Variables.get('rail_api_key')
                 },
                 weather: {
-                    apiKey: Variables.get('weather_api_key'),
-                    locationKey: Variables.get('weather_location_key')
+                    apiKey: Variables.get('open_weather_api_key'),
+                    metOfficeApiKey: Variables.get('met_office_api_key')
                 },
                 tide: {
                     location: Variables.get('tide_location')

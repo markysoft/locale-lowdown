@@ -1,7 +1,7 @@
 import { z } from 'zod'
 import { SunSchema } from './SunSchema'
 import { MoonSchema } from './Moon'
-import { degreesToCompass, getDayOfWeek as toDayOfWeek, kmToMiles, splitOnSemiColons } from '../../../lib/utils'
+import { degreesToCompass, getDayOfWeek as toDayOfWeek, splitOnSemiColons } from '../../../lib/utils'
 
 export const WeatherSchema = z.object({
   date: z.date().optional().transform((val) => val ? toDayOfWeek(val) : undefined),
@@ -15,8 +15,8 @@ export const WeatherSchema = z.object({
     night: z.number().transform(Math.round).optional(),
   }),
   wind: z.object({
-    speed: z.number().transform(kmToMiles).optional(),
-    maxSpeed: z.number().transform(kmToMiles).optional(),
+    speed: z.number().optional(),
+    maxSpeed: z.number().optional(),
     degrees: z.number().transform(degreesToCompass).optional(),
   }),
 })

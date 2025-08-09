@@ -4,7 +4,7 @@ import { TideRecord } from '../schemas/Tide'
 export const TidesCard: FC<{ tideRecord: TideRecord }> = (props: { tideRecord: TideRecord }) => {
 
     return (
-        <div class="card">
+        <div id="tides" class="card">
             <header class="card-header">
                 <p class="card-header-title is-capitalized">{props.tideRecord.location}</p>
             </header>

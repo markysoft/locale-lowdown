@@ -12,7 +12,7 @@ app.get('/', async (c) => {
     c.header('Cache-Control', `public, max-age=${twelveHoursInSeconds}`)
     const tideConfig = getAppSettings().tide
     const tideRecord = await cacheWrapper<TideRecord>('tide', twelveHoursInSeconds, () => getTides(tideConfig.location))
-    return c.render(<TidesCard tideRecord={tideRecord} />)
+    return c.html(<TidesCard tideRecord={tideRecord} />)
 })
 
 export default app

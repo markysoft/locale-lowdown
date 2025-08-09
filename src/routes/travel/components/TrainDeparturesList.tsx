@@ -20,8 +20,12 @@ export const TrainDeparturesList: FC<{ departures: Departures }> = (props: { dep
         return props.departures.crs !== 'MLT'
     }
 
+    function getTrainUrl(station: { crs: string }) {
+        return `@get('/travel/train/${station.crs.toLowerCase()}')`
+    }
+
     return (
-        <>
+        < div id="train-departures">
             <h2 class="title has-text-primary-15">Trains</h2>
             <div class="card">
                 <header class="card-header">
@@ -31,10 +35,9 @@ export const TrainDeparturesList: FC<{ departures: Departures }> = (props: { dep
                                 <li class={isActive(station.crs)} key={station.crs}>
                                     <a
                                         aria-label={`get ${station.name} train times`}
-                                        hx-get={`/travel/train/${station.crs.toLowerCase()}`}
-                                        hx-target="#train-departures"
-                                        hx-indicator="#train-spinner">
-                                        {station.name}
+                                        data-on-click={getTrainUrl(station)}
+                                        data-indicator="_fetchTrains"
+                                    >{station.name}
                                     </a>
                                 </li>
                             ))}
@@ -44,7 +47,10 @@ export const TrainDeparturesList: FC<{ departures: Departures }> = (props: { dep
                 </header>
                 <div class="card-content">
 
-                    <p class="content">Last updated: <strong>{props.departures.generatedAt}</strong> <span id="train-spinner" class="htmx-indicator">&nbsp;<i class="fa fa-spinner fa-spin"></i></span></p>
+                    <p class="content">
+                        Last updated: <strong>{props.departures.generatedAt}</strong>
+                        <span id="train-spinner" data-show="$_fetchTrains">&nbsp;<i class="fa fa-spinner fa-spin"></i></span>
+                    </p>
                     {
                         props.departures.trainServices.map((service: Departure, index: number) => {
                             return <>
@@ -55,6 +61,6 @@ export const TrainDeparturesList: FC<{ departures: Departures }> = (props: { dep
                     }
                 </div>
             </div>
-        </>
+        </div>
     )
 }
