@@ -40,7 +40,6 @@ export const Layout: FC = () => {
                         <p class="subtitle">
                             Barton-le-Street Edition
                         </p>
-                        <p class="message-body" data-text="$_fetchError"></p>
                         <div data-on-datastar-fetch="$_fetchError = evt.detail.type === 'retrying' || evt.detail.type === 'retry-failed'"></div>
                         <div class="box error-message" data-show="$_fetchError" style="position: fixed; bottom: 0em; left: 0em; padding: 1em; z-index: 1000; display: none;">
                             <p class="has-text-danger is-size-4">Network issues. Please try again later.</p>

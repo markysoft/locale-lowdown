@@ -1,6 +1,4 @@
-import { FC } from 'hono/jsx'
-
-export const ErrorArticle: FC<{ message: string }> = (props: { message: string }) => {
+export function ErrorArticle({ message }: { message: string }) {
 
     return (
         <article class="message is-danger">
@@ -8,7 +6,7 @@ export const ErrorArticle: FC<{ message: string }> = (props: { message: string }
                 <p>Error</p>
             </div>
             <div class="message-body">
-                { props.message }
+                { message }
             </div>
         </article>
     )
