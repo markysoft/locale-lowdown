@@ -54,17 +54,19 @@ app.get('/sse', async (c) => {
       isAborted = true
     })
     
-    await patchElement(stream, '<div id="foo">Hello world!</div>')
-    await patchTag(stream, 'title', '08:30:36')
+    // await patchElement(stream, '<div id="foo">Hello world!</div>')
+    // await patchTag(stream, 'title', '08:30:36')
     
-    // Keep sending updates every 1 second while stream is open
-    while (!isAborted) {
-      await new Promise(resolve => setTimeout(resolve, 1000)) // Sleep for 1 second
+    // Keep sending updates every 1 second while stream is open (max 10 times)
+    let counter = 0
+    while (!isAborted && counter < 10) {
 
       if (!isAborted) {
+        counter++
         const timestamp = new Date().toLocaleTimeString()
-        await patchElement(stream, `<div id="foo">Updated at ${timestamp}</div>`)
+        await patchElement(stream, `<div id="foo">Updated at ${timestamp} (${counter}/10)</div>`)
       }
+      await new Promise(resolve => setTimeout(resolve, 1000)) // Sleep for 1 second
     }
   })
 })

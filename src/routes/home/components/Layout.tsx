@@ -46,13 +46,13 @@ export const Layout: FC = () => {
                             <div class="column">
                                 <div class="content">
                                     <h2 class="title has-text-primary-15">Weather</h2>
-                                    <button data-on-click="@get('/sse')">
+                                    {/* <button data-on-click="@get('/sse')">
 
                                         Open the pod bay doors, HAL.
 
                                     </button>
 
-                                    <div id="foo"></div>
+                                    <div id="foo"></div> */}
                                     <div id="weather-today" data-on-load="@get('/weather/today')" >
                                         <div class="spinner box has-text-centered">
                                             <div class="fa fa-spinner fa-spin"></div>
