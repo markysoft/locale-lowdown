@@ -5,7 +5,7 @@ import { toFriendlyDate } from '../../../lib/utils'
 export const BinsCard: FC<{ nextBins: BinDay[] }> = (props: { nextBins: BinDay[] }) => {
 
     return (
-        <div class="card">
+        <div id="bins" class="card">
             <div class="card-content">
                 <div class="content has-text-centered">
                         {props.nextBins.map((bin, index) => 

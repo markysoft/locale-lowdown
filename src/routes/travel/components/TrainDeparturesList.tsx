@@ -21,7 +21,7 @@ export const TrainDeparturesList: FC<{ departures: Departures }> = (props: { dep
     }
 
     return (
-        <>
+        < div id="train-departures">
             <h2 class="title has-text-primary-15">Trains</h2>
             <div class="card">
                 <header class="card-header">
@@ -44,7 +44,10 @@ export const TrainDeparturesList: FC<{ departures: Departures }> = (props: { dep
                 </header>
                 <div class="card-content">
 
-                    <p class="content">Last updated: <strong>{props.departures.generatedAt}</strong> <span id="train-spinner" class="htmx-indicator">&nbsp;<i class="fa fa-spinner fa-spin"></i></span></p>
+                    <p class="content">
+                        Last updated: <strong>{props.departures.generatedAt}</strong>
+                        <span id="train-spinner" data-show="$_fetchTrains">&nbsp;<i class="fa fa-spinner fa-spin"></i></span>
+                    </p>
                     {
                         props.departures.trainServices.map((service: Departure, index: number) => {
                             return <>
@@ -55,6 +58,6 @@ export const TrainDeparturesList: FC<{ departures: Departures }> = (props: { dep
                     }
                 </div>
             </div>
-        </>
+        </div>
     )
 }

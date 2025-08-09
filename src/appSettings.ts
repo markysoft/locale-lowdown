@@ -10,7 +10,7 @@ const AppSettingsSchema = z.object({
     }),
     weather: z.object({
         apiKey: z.string().optional(),
-        metOfficeApiKey: z.string()
+        metOfficeApiKey: z.string().optional() // Optional for compatibility with existing code, but should be set in production
     }),
     tide: z.object({
         location: z.string().default('whitby')

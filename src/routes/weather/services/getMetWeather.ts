@@ -2,7 +2,7 @@ import { getAppSettings } from "../../../appSettings"
 import { MetOfficeWeather, MetOfficeWeatherSchema } from "../schemas/MetOffice"
 
 async function callMetOfficeApi(): Promise<any> {
-  const apiKey = getAppSettings().weather.metOfficeApiKey
+  const apiKey = getAppSettings().weather.metOfficeApiKey || ''
   const response = await fetch( getUrl(), {
     method: 'GET',
     headers: {

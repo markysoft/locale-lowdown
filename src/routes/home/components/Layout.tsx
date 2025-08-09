@@ -13,9 +13,7 @@ export const Layout: FC = () => {
                 <title>Locale Lowdown - Barton-le-Street Edition</title>
                 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@1.0.2/css/bulma.min.css" />
                 <script src="https://kit.fontawesome.com/c2b6fd3803.js" crossorigin="anonymous"></script>
-                <script src="https://unpkg.com/htmx.org@2.0.4"
-                    integrity="sha384-HGfztofotfshcF7+8n44JQL2oJmowVChPTg48S+jvZoztPfvwD79OC/LTtG6dMp+"
-                    crossorigin="anonymous"></script>
+                <script type="module" src="https://cdn.jsdelivr.net/gh/starfederation/datastar@main/bundles/datastar.js"></script>
                 <style>
                     {`
                         ul.no-bullets {
@@ -33,13 +31,6 @@ export const Layout: FC = () => {
 
                 `}
                 </style>
-                <script dangerouslySetInnerHTML={{
-                    __html: `
-                        document.addEventListener('htmx:sendError', function (event) {
-                            document.querySelector('.error-message').style.display = 'block'
-                        });
-                    `
-                }} />                
             </head>
 
             <body>
@@ -58,14 +49,14 @@ export const Layout: FC = () => {
                             <div class="column">
                                 <div class="content">
                                     <h2 class="title has-text-primary-15">Weather</h2>
-                                    <div hx-get="/weather/today" hx-trigger="load">
+                                    <div id="weather-today" data-on-load="@get('/weather/today')" >
                                         <div class="spinner box has-text-centered">
                                             <div class="fa fa-spinner fa-spin"></div>
                                         </div>
                                     </div>
-                                </div>                                
+                                </div>
                                 <div class="content">
-                                    <div hx-get="/travel/bus" hx-trigger="load">
+                                    <div id='travel-bus' data-on-load="@get('/travel/bus')">
                                         <div class="spinner box has-text-centered">
                                             <div class="fa fa-spinner fa-spin"></div>
                                         </div>
@@ -73,14 +64,14 @@ export const Layout: FC = () => {
                                 </div>
                                 <div class="content">
                                     <h2 class="title has-text-primary-15">Bins</h2>
-                                    <div hx-get="/bins" hx-trigger="load">
+                                    <div id="bins" data-on-load="@get('/bins')">
                                         <div class="spinner box has-text-centered">
                                             <div class="fa fa-spinner fa-spin"></div>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="content">
-                                    <div hx-get="/travel/train/mlt" hx-trigger="load" id="train-departures">
+                                    <div id="train-departures" data-indicator="_fetchTrains" data-on-load="@get('/travel/train/mlt')" >
                                         <div class="spinner box has-text-centered">
                                             <div class="fa fa-spinner fa-spin"></div>
                                         </div>
@@ -88,7 +79,7 @@ export const Layout: FC = () => {
                                 </div>
                                 <div class="content">
                                     <h2 class="title has-text-primary-15">Tides</h2>
-                                    <div hx-get="/tides" hx-trigger="load">
+                                    <div id="tides" data-on-load="@get('/tides')">
                                         <div class="spinner box has-text-centered">
                                             <div class="fa fa-spinner fa-spin"></div>
                                         </div>
@@ -96,7 +87,7 @@ export const Layout: FC = () => {
                                 </div>
                                 <div class="content">
                                     <h2 class="title has-text-primary-15">Next Bank Holiday</h2>
-                                    <div hx-get="/bank-holidays/next" hx-trigger="load">
+                                    <div id="bank-holidays-next" data-on-load="@get('/bank-holidays/next')">
                                         <div class="spinner box has-text-centered">
                                             <div class="fa fa-spinner fa-spin"></div>
                                         </div>
@@ -104,7 +95,7 @@ export const Layout: FC = () => {
                                 </div>
                                 <div class="content">
                                     <h2 class="title has-text-primary-15">Weather for the Week</h2>
-                                    <div hx-get="/weather/week-ahead" hx-trigger="load">
+                                    <div id="weather-week-ahead" data-on-load="@get('/weather/week-ahead')">
                                         <div class="spinner box has-text-centered">
                                             <div class="fa fa-spinner fa-spin"></div>
                                         </div>
@@ -114,7 +105,7 @@ export const Layout: FC = () => {
                             <div class="column is-half">
                                 <div class="content">
                                     <h2 class="title has-text-primary-15">Bank Holidays</h2>
-                                    <div hx-get="/bank-holidays/upcoming" hx-trigger="load">
+                                    <div id="bank-holidays-upcoming" data-on-load="@get('/bank-holidays/upcoming')">
                                         <div class="spinner box has-text-centered">
                                             <div class="fa fa-spinner fa-spin"></div>
                                         </div>

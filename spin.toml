@@ -8,6 +8,7 @@ version = "0.1.0"
 
 [variables]
 weather_api_key = { required = true }
+met_office_api_key = { required = true }
 open_weather_api_key = { required = true }
 rail_api_key = { required = true }
 home_bus_stop = { default = "Barton le Street" }
@@ -39,4 +40,5 @@ town_bus_stop = "{{ town_bus_stop }}"
 weather_location_key = "{{ weather_location_key }}"
 tide_location = "{{ tide_location }}"
 open_weather_api_key = "{{ open_weather_api_key }}"
+met_office_api_key = "{{ met_office_api_key }}"
 rail_api_key = "{{ rail_api_key }}"
