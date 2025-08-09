@@ -1,8 +1,8 @@
-import { getAppSettings } from "../../../appSettings"
-import { MoonSchema } from "../schemas/Moon"
-import { OpenWeather } from "../schemas/OpenWeather"
-import { SunSchema } from "../schemas/SunSchema"
-import { WeatherSchema, WeekAheadDay } from "../schemas/Weather"
+import { getAppSettings } from '../../../appSettings'
+import { MoonSchema } from '../schemas/Moon'
+import { OpenWeather } from '../schemas/OpenWeather'
+import { SunSchema } from '../schemas/SunSchema'
+import { WeatherSchema, WeekAheadDay } from '../schemas/Weather'
 
 function mapWeather(todayWeather: OpenWeather): WeekAheadDay {
   const {

@@ -8,8 +8,6 @@ export const Layout: FC = () => {
             <head>
                 <meta charset="utf-8" />
                 <meta name="viewport" content="width=device-width, initial-scale=1" />
-                <meta name="htmx-config"
-                    content='{"responseHandling": [{"code":"204", "swap": false},{"code":"...", "swap": true}]}' />
                 <title>Locale Lowdown - Barton-le-Street Edition</title>
                 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@1.0.2/css/bulma.min.css" />
                 <script src="https://kit.fontawesome.com/c2b6fd3803.js" crossorigin="anonymous"></script>
@@ -42,7 +40,9 @@ export const Layout: FC = () => {
                         <p class="subtitle">
                             Barton-le-Street Edition
                         </p>
-                        <div class="box error-message" style="position: fixed; bottom: 0em; left: 0em; padding: 1em; z-index: 1000; display: none;">
+                        <p class="message-body" data-text="$_fetchError"></p>
+                        <div data-on-datastar-fetch="$_fetchError = evt.detail.type === 'retrying' || evt.detail.type === 'retry-failed'"></div>
+                        <div class="box error-message" data-show="$_fetchError" style="position: fixed; bottom: 0em; left: 0em; padding: 1em; z-index: 1000; display: none;">
                             <p class="has-text-danger is-size-4">Network issues. Please try again later.</p>
                         </div>
                         <div class="columns">
@@ -117,7 +117,7 @@ export const Layout: FC = () => {
                             <div class="content has-text-centered">
                                 <strong><a href="https://developer.fermyon.com/spin/v3/index" target="_blank">Spin</a></strong> and &nbsp;
                                 <strong><a href="https://hono.dev" target="_blank">Hono</a></strong> backend, <br />
-                                <strong><a href="https://htmx.org/" target="_blank">HTMX</a></strong> + <strong>
+                                <strong><a href="https://data-star.dev/" target="_blank">DataStar</a></strong> + <strong>
                                     <a href="https://bulma.io/" target="_blank">Bulma</a></strong> & <strong>
                                     <a href="https://fontawesome.com">Font Awesome</a></strong> frontend<br />
                                 Tide times from <a href="https://www.tidetimes.org.uk/" target="_blank">www.tidetimes.org.uk</a>,
