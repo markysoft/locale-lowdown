@@ -20,6 +20,10 @@ export const TrainDeparturesList: FC<{ departures: Departures }> = (props: { dep
         return props.departures.crs !== 'MLT'
     }
 
+    function getTrainUrl(station: { crs: string }) {
+        return `@get('/travel/train/${station.crs.toLowerCase()}')`
+    }
+
     return (
         < div id="train-departures">
             <h2 class="title has-text-primary-15">Trains</h2>
@@ -31,10 +35,9 @@ export const TrainDeparturesList: FC<{ departures: Departures }> = (props: { dep
                                 <li class={isActive(station.crs)} key={station.crs}>
                                     <a
                                         aria-label={`get ${station.name} train times`}
-                                        hx-get={`/travel/train/${station.crs.toLowerCase()}`}
-                                        hx-target="#train-departures"
-                                        hx-indicator="#train-spinner">
-                                        {station.name}
+                                        data-on-click={getTrainUrl(station)}
+                                        data-indicator="_fetchTrains"
+                                    >{station.name}
                                     </a>
                                 </li>
                             ))}
