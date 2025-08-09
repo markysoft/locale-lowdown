@@ -1,5 +1,5 @@
 import { Hono } from 'hono'
-import { streamSSE } from 'hono/streaming'
+import { stream, streamSSE } from 'hono/streaming'
 import { logger } from 'hono/logger'
 import { timing } from 'hono/timing'
 import { jsxRenderer } from 'hono/jsx-renderer'
@@ -11,6 +11,7 @@ import tides from './routes/tides'
 import weather from './routes/weather'
 import bins from './routes/bins'
 import { ErrorArticle } from './routes/home/components/ErrorArticle'
+import { patchElement, patchTag } from './lib/sseHelper'
 
 console.log('Starting...')
 const app = new Hono()
@@ -43,15 +44,13 @@ addEventListener('fetch', async (event: FetchEvent) => {
 let id = 0
 
 app.get('/sse', async (c) => {
-  return streamSSE(c, async (stream) => {
-    while (true) {
-      const message = `It is ${new Date().toISOString()}`
-      await stream.writeSSE({
-        data: message,
-        event: 'time-update',
-        id: String(id++),
-      })
-      await stream.sleep(1000)
-    }
+  console.log('SSE connection established')
+    return stream(c, async (stream) => {
+    // Write a process to be executed when aborted.
+    stream.onAbort(() => {
+      console.log('Aborted!')
+    })
+    await patchElement(stream, '<div id="foo">Hello world!</div>')
+    await patchTag(stream, 'title', '08:30:36')
   })
 })
