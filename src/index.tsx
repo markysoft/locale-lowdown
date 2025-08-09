@@ -46,11 +46,25 @@ let id = 0
 app.get('/sse', async (c) => {
   console.log('SSE connection established')
     return stream(c, async (stream) => {
+    let isAborted = false
+    
     // Write a process to be executed when aborted.
     stream.onAbort(() => {
       console.log('Aborted!')
+      isAborted = true
     })
+    
     await patchElement(stream, '<div id="foo">Hello world!</div>')
     await patchTag(stream, 'title', '08:30:36')
+    
+    // Keep sending updates every 1 second while stream is open
+    while (!isAborted) {
+      await new Promise(resolve => setTimeout(resolve, 1000)) // Sleep for 1 second
+
+      if (!isAborted) {
+        const timestamp = new Date().toLocaleTimeString()
+        await patchElement(stream, `<div id="foo">Updated at ${timestamp}</div>`)
+      }
+    }
   })
 })
