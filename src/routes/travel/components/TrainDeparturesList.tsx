@@ -26,6 +26,7 @@ export function TrainDeparturesList({ departures }: { departures: Departures }) 
     return (
         < div id="train-departures">
             <h2 class="title has-text-primary-15">Trains</h2>
+            <div data-signals="{'_fetchTrains': true}"></div>
             <div class="card">
                 <header class="card-header">
                     <div class="tabs">
@@ -48,7 +49,7 @@ export function TrainDeparturesList({ departures }: { departures: Departures }) 
 
                     <p class="content">
                         Last updated: <strong>{departures.generatedAt}</strong>
-                        <span id="train-spinner" data-show="$_fetchTrains">&nbsp;<i class="fa fa-spinner fa-spin"></i></span>
+                        <span id="train-spinner" data-show="$_fetchTrains">&nbsp;<i class="fa fa-sync fa-spin"></i></span>
                     </p>
                     {
                         departures.trainServices.map((service: Departure, index: number) => {

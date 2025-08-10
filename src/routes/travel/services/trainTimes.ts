@@ -40,7 +40,7 @@ export const DepartureSchema = z.object({
 
 export const DeparturesSchema = z.object({
     trainServices: z.array(DepartureSchema),
-    generatedAt: z.coerce.date().transform((date) => toHourMinuteSecondString(applyBritishSummerTime(date))),
+    generatedAt: z.coerce.date().transform((date) => toHourMinuteString(applyBritishSummerTime(date))),
     locationName: z.string(),
     crs: z.string(),
     filterType: z.string(),
