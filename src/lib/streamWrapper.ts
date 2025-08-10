@@ -3,7 +3,7 @@ import { stream } from 'hono/streaming';
 
 // Stream wrapper function
 
-export async function streamWrapper(c: Context, asyncFunction: (stream: any) => Promise<void>, interval: number = 60000, maxEvents: number = 10) {
+export async function streamWrapper(c: Context, asyncFunction: (stream: any) => Promise<void>, intervalSeconds: number = 60, maxEvents: number = 10) {
   return stream(c, async (stream) => {
     let isAborted = false;
 
@@ -14,11 +14,16 @@ export async function streamWrapper(c: Context, asyncFunction: (stream: any) => 
 
     let counter = 0;
     while (!isAborted && counter < maxEvents) {
-      if (!isAborted) {
-        counter++;
-        await asyncFunction(stream);
+      try {
+        if (!isAborted) {
+          counter++;
+          await asyncFunction(stream);
+        }
+        await new Promise(resolve => setTimeout(resolve, intervalSeconds * 1000))
+      } catch (error) {
+        console.error('Error in streamWrapper:', error)
+        isAborted = true
       }
-      await new Promise(resolve => setTimeout(resolve, interval)); // Sleep for 1 second
     }
-  });
+  })
 }

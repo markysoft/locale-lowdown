@@ -2,10 +2,12 @@ import { Hono } from 'hono'
 import { NextBusCard } from './components/NextBusCard'
 import { getNextBusFromMalton, getNextBusToMalton } from './services/getNextBus'
 import { getAppSettings } from '@/appSettings'
-import { getDepartures } from './services/trainTimes'
+import { Departures, getDepartures } from './services/trainTimes'
 import { TrainDeparturesList } from './components/TrainDeparturesList'
 import { patchElement } from '@/lib/sseHelper'
 import { streamWrapper } from '@/lib/streamWrapper'
+import { oneMinuteInSeconds } from '@/constants'
+import { cacheWrapper } from '@/lib/cache'
 
 const app = new Hono()
 
@@ -20,7 +22,7 @@ app.get('/bus', async (c) => {
         await patchElement(stream, htmlString)
     }
 
-    return await streamWrapper(c, updateBusTimes, 60000, 10)
+    return await streamWrapper(c, updateBusTimes, oneMinuteInSeconds, 120)
 })
 
 app.get('/train/:code', async (c) => {
@@ -28,12 +30,12 @@ app.get('/train/:code', async (c) => {
     const travelSettings = getAppSettings().travel
 
     const updateTrainDepartures = async (stream: any) => {
-        const departures = await getDepartures(code, travelSettings.railApiKey)
+        const departures = await cacheWrapper<Departures>(`train-${code}`, oneMinuteInSeconds, () => getDepartures(code, travelSettings.railApiKey))
         const htmlString = (<TrainDeparturesList departures={departures} />).toString()
         await patchElement(stream, htmlString)
     }
 
-    return await streamWrapper(c, updateTrainDepartures, 60000, 10)
+    return await streamWrapper(c, updateTrainDepartures, oneMinuteInSeconds, 120)
 })
 
 export default app
