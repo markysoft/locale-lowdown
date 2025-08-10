@@ -39,6 +39,13 @@ export function toHourMinuteString(date: Date): string {
     return `${hours}:${minutes}`
 }
 
+export function toHourMinuteSecondString(date: Date): string {
+    const hours = date.getHours().toString().padStart(2, '0')
+    const minutes = date.getMinutes().toString().padStart(2, '0')
+    const seconds = date.getSeconds().toString().padStart(2, '0')
+    return `${hours}:${minutes}:${seconds}`
+}
+
 export function degreesToCompass(degrees: number): string {
     const directions = ['N', 'NNE', 'NE', 'ENE', 'E', 'ESE', 'SE', 'SSE', 'S', 'SSW', 'SW', 'WSW', 'W', 'WNW', 'NW', 'NNW']
     const index = Math.round(degrees / 22.5) % 16
